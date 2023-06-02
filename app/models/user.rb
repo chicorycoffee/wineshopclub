@@ -8,4 +8,6 @@ class User < ApplicationRecord
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX, message: 'は半角の英字と数字の両方を含めて、6文字以上で設定してください'
+
+  has_many :posts
 end
