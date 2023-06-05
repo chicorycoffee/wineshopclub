@@ -3,3 +3,16 @@ ja:
     attributes:
       user:
         nickname: ニックネーム
+      post:
+        title: キャッチコピー
+        name: 商品名
+        importer: 輸入業者・卸売業者名
+        genre_id: 商品ジャンル
+        country_id: 産地
+        type_id: ワインタイプ
+        taste_id: 味わい
+        grape_id: 主体のブドウ品種
+        price_id: 参考上代価格帯(税別)
+        text: 補足コメント
+
+
