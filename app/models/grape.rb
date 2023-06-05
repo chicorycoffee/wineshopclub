@@ -20,7 +20,7 @@ class Grape < ActiveHash::Base
     { id: 18, name: 'リースリング' },
     { id: 19, name: 'ピノ・グリ' },
     { id: 20, name: '甲州' },
-    { id: 21, name: 'ゲヴュルツトラミネール' }
+    { id: 21, name: 'ゲヴュルツトラミネール' },
     { id: 22, name: 'その他' }
   ]
 

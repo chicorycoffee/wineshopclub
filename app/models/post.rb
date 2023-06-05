@@ -17,4 +17,9 @@ class Post < ApplicationRecord
   validates :country_id, numericality: { other_than: 1 , message: "を選んでください"}
   validates :type_id, numericality: { other_than: 1 , message: "を選んでください"}
 
+  validates :text, {length: {maximum: 140}}
+  validates :title, {length: {maximum: 30}}
+  validates :name, {length: {maximum: 50}}
+  validates :importer, {length: {maximum: 15}}
+
 end

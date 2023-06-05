@@ -7,7 +7,7 @@ class Taste < ActiveHash::Base
     { id: 5, name: '極辛口' },
     { id: 6, name: '辛口' },
     { id: 7, name: '甘口' },
-    { id: 8, name: '極甘口' }
+    { id: 8, name: '極甘口' },
     { id: 9, name: 'その他' }
   ]
 
