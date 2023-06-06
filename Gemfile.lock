@@ -96,11 +96,9 @@ GEM
     faker (2.22.0)
       i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
-    gimei (1.1.0)
-      romaji
     globalid (1.1.0)
       activesupport (>= 5.0)
-    i18n (1.13.0)
+    i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
       mini_magick (>= 4.9.5, < 5)
@@ -199,8 +197,6 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.2.5)
-    romaji (0.2.4)
-      rake (>= 0.8.0)
     rspec-core (3.12.2)
       rspec-support (~> 3.12.0)
     rspec-expectations (3.12.3)
@@ -250,7 +246,7 @@ GEM
       sprockets (>= 3.0.0)
     thor (1.2.2)
     thread_safe (0.3.6)
-    tilt (2.1.0)
+    tilt (2.2.0)
     timeout (0.3.2)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
@@ -292,7 +288,6 @@ DEPENDENCIES
   devise
   factory_bot_rails
   faker
-  gimei
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
