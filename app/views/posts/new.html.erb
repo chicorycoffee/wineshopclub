@@ -1,12 +1,14 @@
-<div class="new-post-contents">
+<%= render "shared/header"%>
 
-  <div class="posts-box">
+<div class="outer-content">
+
+  <div class="inner-content">
     <h2 class="post-title">ワインを投稿</h2>
     <%= form_with model: @post, url:posts_path, local: true do |f| %>
     <%= render 'shared/error_messages', model: f.object %>
 
 
-  <div class="img-upload">
+   <div class="img-upload">
     <div class="bold-text">
       画像
     </div>
@@ -29,6 +31,10 @@
     </div>
     <%= f.text_field :name, class:"name", placeholder:"最大50文字。（例）ABCヴィンヤード シャルドネ 2020", maxlength:"50" %>
     <div class="bold-text">
+      輸入業者・卸売業者名
+    </div>
+    <%= f.text_field :name, class:"name", placeholder:"（例）ABCワイン商事", maxlength:"15" %>
+    <div class="bold-text">
       ジャンル
     <span class="indispensable">必須</span>
     </div>
@@ -46,7 +52,7 @@
     <div class="bold-text">
       味わい
     </div>
-    <%= f.collection_select(:type_id, Taste.all, :id, :name, {}, {class:"genre-select"}) %>
+    <%= f.collection_select(:taste_id, Taste.all, :id, :name, {}, {class:"genre-select"}) %>
         <div class="bold-text">
       主体のブドウ品種
     </div>
@@ -60,7 +66,7 @@
     </div>
     <%= f.text_area :text, class:"text", placeholder:"最大140文字。ワインについて補足のコメントをお願いします。", maxlength:"140" %>
     <div>
-    <%= f.submit "投稿する" ,class:"btn" %>
+    <input class="btn btn-primary" type="submit" value="投稿する">
     </div>
   </div>
 <% end %>
