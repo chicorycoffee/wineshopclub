@@ -54,6 +54,7 @@
 | customer_id   | integer    |                                |
 | price_id      | integer    |                                |
 | country_id    | integer    |                                |
+| introduction  | text       |     
 | user          | references | null: false, foreign_key: true |
 
 
