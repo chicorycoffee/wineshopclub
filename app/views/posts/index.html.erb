@@ -1,2 +1,38 @@
 <%= render "shared/header"%>
 
+<div class="category bg-success">今売れてます</div>
+  <% @post1.each do |post| %>
+    <div class="post-index-item mb-20">
+      <% if post.image.attached? %>
+        <%= image_tag post.image, class: "index-img" %>
+      <% else %>
+        <img class="index-img" src="<%= "/images/test_sample.png" %>" alt="Index image cap">
+      <% end %>
+      <%= link_to(post.title, post_path(post.id)) %>
+    </div>
+  <% end %>
+
+  <div class="category bg-warning">次のシーズンで注力</div>
+  <% @post2.each do |post| %>
+    <div class="post-index-item mb-20">
+      <% if post.image.attached? %>
+        <%= image_tag post.image, class: "index-img" %>
+      <% else %>
+        <img class="index-img" src="<%= "/images/test_sample.png" %>" alt="Index image cap">
+      <% end %>
+      <%= link_to(post.title, post_path(post.id)) %>
+    </div>
+  <% end %>
+
+      <div class="category bg-info">探してます</div>
+     <% @post3.each do |post| %>
+      <div class="post-index-item mb-20">
+      <% if post.image.attached? %>
+        <%= image_tag post.image, class: "index-img" %>
+      <% else %>
+        <img class="index-img" src="<%= "/images/test_sample.png" %>" alt="Index image cap">
+      <% end %>
+      <%= link_to(post.title, post_path(post.id)) %>
+    </div>
+    <% end %>
+  

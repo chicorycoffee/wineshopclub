@@ -24,20 +24,25 @@
       キャッチコピー
       <span class="indispensable">必須</span>
     </div>
+
     <%= f.text_field :title, class:"title", placeholder:"最大30文字。(例) キンキンに冷やす夏の定番", maxlength:"30"%>
     <div class="bold-text">
       商品名
     <span class="indispensable">必須</span>
     </div>
+    
     <%= f.text_field :name, class:"name", placeholder:"最大50文字。（例）ABCヴィンヤード シャルドネ 2020", maxlength:"50" %>
+    
     <div class="bold-text">
-      輸入業者・卸売業者名
+     輸入業者・卸売業者名
     </div>
-    <%= f.text_field :name, class:"name", placeholder:"（例）ABCワイン商事", maxlength:"15" %>
+    <%= f.text_field :importer, class:"importer", placeholder:"（例）ABCワイン商事", maxlength:"15" %>
+    
     <div class="bold-text">
       ジャンル
     <span class="indispensable">必須</span>
     </div>
+    
     <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"genre-select"}) %>
         <div class="bold-text">
       産地

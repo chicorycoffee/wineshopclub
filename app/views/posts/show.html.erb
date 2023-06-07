@@ -8,8 +8,16 @@
     <h2 class="title">
       <%= @post.title %>
     </h2>
+    <h2 class="user-nickname" %>
+    <%= "by " %>
+    <%= link_to @post.user.nickname, "#" %>
+    </h2>
     <div class="post-img-content">
-      <%= image_tag @post.image ,class:"post-box-img" %>
+        <% if @post.image.attached? %>
+        <%= image_tag @post.image, class: "post-box-img" %>
+      <% else %>
+        <img class="index-img" src="<%= "/images/test_sample.png" %>" alt="Index image cap">
+      <% end %>
     </div>
     
     <% if user_signed_in? && current_user.id == @post.user_id %>
@@ -26,7 +34,13 @@
         </tr>
         <tr>
           <th class="detail-item">輸入業者・卸売業者名</th>
-          <td class="detail-value"><%= @post.importer %></td>
+          <td class="detail-value">
+          <% if @post.importer.present?%>
+          <%= @post.importer %>
+          <% else %>
+          <%= "---" %>
+          <% end %>
+          </td>
         </tr>
         <tr>
           <th class="detail-item">産地</th>
@@ -38,11 +52,28 @@
         </tr>
         <tr>
           <th class="detail-item">味わい</th>
-          <td class="detail-value"><%= @post.taste.name %></td>
+          <td class="detail-value">
+          <%= @post.taste.name %>
+          </td>
         </tr>
         <tr>
           <th class="detail-item">主体のブドウ品種</th>
           <td class="detail-value"><%= @post.grape.name %></td>
         </tr>
+         <tr>
+          <th class="detail-item">参考上代価格帯(税抜)</th>
+          <td class="detail-value"><%= @post.price.name %></td>
+        </tr>
+         <tr>
+          <th class="detail-item">補足コメント</th>
+          <td class="detail-value">
+          <% if @post.text.present?%>
+          <%= @post.text %>
+          <% else %>
+          <%= "---" %>
+          <% end %>
+          </td>
+        </tr>
       </tbody>
       </table>
+</div>

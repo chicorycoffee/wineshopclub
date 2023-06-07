@@ -4,7 +4,9 @@ class PostsController < ApplicationController
   before_action :move_to_root, only: [:edit, :destroy]
 
   def index
-    @posts = Post.includes(:user).order('created_at DESC')
+    @post1 = Post.where(genre_id: 2).includes(:user).order('created_at DESC')
+    @post2 = Post.where(genre_id: 3).includes(:user).order('created_at DESC')
+    @post3 = Post.where(genre_id: 4).includes(:user).order('created_at DESC')
   end
 
   def new
