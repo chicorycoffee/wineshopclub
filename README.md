@@ -38,7 +38,7 @@
 ## commentsテーブル
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
-| text   | text       | null: false                    |
+| text   | text       |                                |
 | post   | references | null: false, foreign_key: true |
 | user   | references | null: false, foreign_key: true |
 
