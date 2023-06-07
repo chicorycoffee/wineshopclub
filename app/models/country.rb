@@ -15,5 +15,6 @@ class Country < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :posts
+  has_many :profiles
 
   end
