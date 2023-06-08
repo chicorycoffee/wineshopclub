@@ -1,4 +1,4 @@
-class Country < ActiveHash::Base
+class Customer < ActiveHash::Base
   self.data = [
     { id: 1, name: '---' },
     { id: 2, name: '20〜30代・男性' },
