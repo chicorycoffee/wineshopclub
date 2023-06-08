@@ -5,8 +5,9 @@ Rails.application.routes.draw do
     resources :comments, only: :create
   end
 
-  resources :users, only: :show do
+  resources :users do
    resources :profiles, only: [:new, :create, :edit, :update]
    resource :profiles, only: :show
+   resource :relationships, only: [:create, :destroy]
   end
 end
