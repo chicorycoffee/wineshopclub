@@ -1,0 +1,56 @@
+<%= @user.nickname + " さんの ワインショップ"%>
+
+<table class="table-striped">
+<tbody>
+<tr>
+<th class="detail-item">店名</th>
+<td class="detail-value">
+<% if Profile.where(user_id: @user.id).exists? %>
+<%= @user.profile.shop %>
+<% else %>
+<%= "---" %>
+<% end %>
+</td>
+</tr>
+<tr>
+<th class="detail-item">所在地</th>
+<td class="detail-value">
+<% if Profile.where(user_id: @user.id).exists? %>
+<%= @user.profile.prefecture.name %>
+<% else %>
+<%= "---" %>
+<% end %>
+</td>
+</tr>
+<tr>
+<th class="detail-item">主要顧客層</th>
+<td class="detail-value">
+<% if Profile.where(user_id: @user.id).exists? %>
+<%= @user.profile.customer.name %>
+<% else %>
+<%= "---" %>
+<% end %>
+</td>
+</tr>
+<tr>
+<th class="detail-item">注力産地</th>
+<td class="detail-value">
+<% if Profile.where(user_id: @user.id).exists? %>
+<%= @user.profile.country.name %>
+<% else %>
+<%= "---" %>
+<% end %>
+</td>
+</tr>
+<tr>
+<th class="detail-item">紹介コメント</th>
+<td class="detail-value">
+<% if Profile.where(user_id: @user.id).exists? %>
+<%= @user.profile.introduction %>
+<% else %>
+<%= "---" %>
+<% end %>
+</td>
+</tr>
+</tbody>
+</table>

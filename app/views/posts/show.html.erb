@@ -10,7 +10,7 @@
     </h2>
     <h2 class="user-nickname" %>
     <%= "by " %>
-    <%= link_to @post.user.nickname, "#" %>
+    <%= link_to @post.user.nickname, user_profiles_path(@post.user.id) %>
     </h2>
     <div class="post-img-content">
         <% if @post.image.attached? %>
@@ -76,6 +76,7 @@
         </tr>
       </tbody>
       </table>
+
   <div class="container">
     <% if user_signed_in? %>
       <%= form_with(model: [@post, @comment], local: true) do |form| %>
@@ -89,7 +90,7 @@
       <h4>＜コメント一覧＞</h4>
       <% @comments.each do |comment| %>
         <p>
-          <strong><%= link_to comment.user.nickname, "#" %>：</strong>
+          <strong><%= link_to comment.user.nickname, user_profiles_path(comment.user.id) %>：</strong>
           <%= comment.text %>
         </p>
       <% end %>

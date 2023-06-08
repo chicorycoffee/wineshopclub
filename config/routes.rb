@@ -4,4 +4,9 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments, only: :create
   end
+
+  resources :users, only: :show do
+   resource :profiles, only: [:show, :edit, :update]
+  end
+
 end
