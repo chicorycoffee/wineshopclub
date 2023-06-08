@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: :show do
-   resource :profiles, only: [:show, :edit, :update]
+   resources :profiles, only: [:new, :create, :edit, :update]
+   resource :profiles, only: :show
   end
-
 end

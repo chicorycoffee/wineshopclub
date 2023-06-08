@@ -1,0 +1,30 @@
+<%= form_with model: @profile, local: true do |f| %>
+    <div class="bold-text">
+      店名
+    </div>
+    <%= f.text_field :shop, class:"shop", placeholder:"最大30文字。(例) ワインショップABC", maxlength:"15" %>
+
+    <div class="bold-text">
+      所在地
+    </div>
+    <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"genre-select"}) %>
+    
+    <div class="bold-text">
+     主要顧客層
+    </div>
+   <%= f.collection_select(:customer_id, Customer.all, :id, :name, {}, {class:"genre-select"}) %>
+    
+    <div class="bold-text">
+      注力産地
+    </div>
+    <%= f.collection_select(:country_id, Country.all, :id, :name, {}, {class:"genre-select"}) %>
+
+    <div class="bold-text">
+      紹介コメント
+    </div>    
+    <%= f.text_area :introduction, class:"introduction", placeholder:"最大140文字。", maxlength:"140" %>
+    
+    <div>
+    <input class="btn btn-primary" type="submit" value="投稿する">
+    </div>
+<% end %>

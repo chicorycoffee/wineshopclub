@@ -10,7 +10,7 @@
     </h2>
     <h2 class="user-nickname" %>
     <%= "by " %>
-    <%= link_to @post.user.nickname, user_profiles_path(@post.user.id) %>
+    <%= link_to @post.user.nickname, "/users/#{@post.user.id}/profiles" %>
     </h2>
     <div class="post-img-content">
         <% if @post.image.attached? %>
