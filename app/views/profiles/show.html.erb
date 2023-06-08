@@ -64,6 +64,13 @@
 <%=link_to "フォローする", user_relationships_path(@user.id),class: "btn btn-primary" ,method: :post %>
 <% end %>
 <% end %>
+
+<% if @user.followers.exists? %>
+<h3>フォロワー</h3>
+<% @user.followers.each do |user| %>
+<p class=“f-user”><%= link_to user.nickname, "/users/#{user.id}/profiles" %></p>
+<% end %>
+<% end %>
 </div>
 
 <div>
