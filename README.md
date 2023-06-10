@@ -73,17 +73,17 @@
 ## followsテーブル
 | Column      | Type    | Options     |
 | ----------- | ------- | ----------- |
-| follower_id | integer | null: false |
-| folowee_id  | integer | null: false |
+| follower_id | integer |             |
+| folowee_id  | integer |             |
 
 ### Association
 - belongs_to :user
 
-## favoritesテーブル
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| post   | references | null: false, foreign_key: true |
-| user   | references | null: false, foreign_key: true |
+## likesテーブル
+| Column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| post   | references | foreign_key: true |
+| user   | references | foreign_key: true |
 
 
 ### Association
