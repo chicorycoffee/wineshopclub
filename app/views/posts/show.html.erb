@@ -19,12 +19,16 @@
         <img class="index-img" src="<%= "/images/test_sample.png" %>" alt="Index image cap">
       <% end %>
     </div>
-    
+    <div>
     <% if user_signed_in? && current_user.id == @post.user_id %>
     <%= link_to "商品の編集", edit_post_path(@post.id), method: :get, class: "post-red-btn" %>
     <p class="or-text">or</p>
     <%= link_to "削除", post_path(@post.id), method: :delete, class:"post-destroy" %>
-    <% end %>    
+    <% end %>
+    </div>
+<div>
+    <%= render 'post', post: @post %>
+</div>
 
     <table class="table-striped">
     <tbody>
