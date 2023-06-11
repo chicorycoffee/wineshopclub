@@ -1,13 +1,51 @@
-<header class='top-page-header'>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/posts">WINE SHOP CLUB</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <% if user_signed_in? %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/users/<%= current_user.id %>/profiles">マイページ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/posts/new">新規投稿</a>
+        </li>
+        <li class="nav-item" class="text-decoration-none">
+         <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            投稿ジャンル
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/posts/index/hot">今売れてます</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/posts/index/next">次のシーズンで注力</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/posts/index/wanted">探してます</a></li>
+          </ul>
+        </li>
+      </ul>
+    
+      <!--<form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>-->
 
-<%= link_to 'トップページ', root_path %>
-<ul>
-<% if user_signed_in? %>
-<li><%= link_to current_user.nickname, user_profiles_path(current_user.id), class: "user-nickname"  %></li>
-<li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"  %></li>
-<% else %>
-<li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-<li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-<% end %>
-</ul>
-</header>
+    <% else %>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/users/sign_in">ログイン</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/sign_up">新規登録</a>
+        </li>
+        </ul>
+    <% end %>
+  </div>
+</nav>
