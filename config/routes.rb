@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     resource :likes, only: [:create, :destroy]
   end
 
+  get 'posts/index/hot' => 'posts#hot'
+  get 'posts/index/next' => 'posts#next'
+  get 'posts/index/wanted' => 'posts#wanted'
+
   resources :users do
    resources :profiles, only: [:new, :create, :edit, :update]
    resource :profiles, only: :show
