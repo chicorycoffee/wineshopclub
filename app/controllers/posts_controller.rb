@@ -4,9 +4,9 @@ class PostsController < ApplicationController
   before_action :move_to_root, only: [:edit, :destroy]
 
   def index
-    @post1 = Post.where(genre_id: 2).includes(:user).order('created_at DESC')
-    @post2 = Post.where(genre_id: 3).includes(:user).order('created_at DESC')
-    @post3 = Post.where(genre_id: 4).includes(:user).order('created_at DESC')
+    @post1 = Post.where(genre_id: 2).includes(:user).order('created_at DESC').limit(3)
+    @post2 = Post.where(genre_id: 3).includes(:user).order('created_at DESC').limit(3)
+    @post3 = Post.where(genre_id: 4).includes(:user).order('created_at DESC').limit(3)
   end
 
   def new
@@ -42,7 +42,19 @@ class PostsController < ApplicationController
       @post.destroy if current_user.id == @post.user.id
       redirect_to root_path
     end
-  
+
+    def hot
+      @posts = Post.where(genre_id: 2).includes(:user).order('created_at DESC')
+    end
+
+    def next
+      @posts = Post.where(genre_id: 3).includes(:user).order('created_at DESC')
+    end
+
+    def wanted
+      @posts = Post.where(genre_id: 4).includes(:user).order('created_at DESC')
+    end
+
 private
 
 def post_params

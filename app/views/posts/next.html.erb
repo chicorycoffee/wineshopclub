@@ -1,0 +1,11 @@
+  <div class="category bg-warning">次のシーズンで注力</div>
+  <% @posts.each do |post| %>
+    <div class="post-index-item mb-20">
+      <% if post.image.attached? %>
+        <%= image_tag post.image, class: "index-img" %>
+      <% else %>
+        <img class="index-img" src="<%= "/images/test_sample.png" %>" alt="Index image cap">
+      <% end %>
+      <%= link_to(post.title, post_path(post.id)) %>
+    </div>
+  <% end %>
