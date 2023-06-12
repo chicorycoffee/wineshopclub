@@ -1,38 +1,109 @@
 <%= render "shared/header"%>
 
-<div class="category bg-success"><%= link_to "今売れてます", posts_index_hot_path %></div>
+<body>
+<div class="wrapper" >
+<div class="container-fluid img-hidden">
+<img src="/images/index.jpg" class="img-fluid">
+</div>
+<div class="index-message text-center">
+『WINE SHOP CLUB』はワイン小売業者間で“現場の声”を共有するサイトです。<br>
+『今売れてます』『次のシーズンで注力』『探してます』の三つのジャンルでワインに関する情報を投稿できます。<br>
+店頭販促や仕入れの計画にお役立てください。
+
+</div>
+
+<div class="container">
+  <div class="container-w">
+  <div class="index-category">
+  <div class="left"><span style="font-size:180%"><b>今売れてます  </b></span>の最近の投稿 </div>
+  <div class="right"><span style="font-size:150%"><%= link_to "すべて見る", posts_index_hot_path, class:"index-category-link" %></span></div>
+  </div>
+  <div class="row row-cols-3">
   <% @post1.each do |post| %>
-    <div class="post-index-item mb-20">
-      <% if post.image.attached? %>
-        <%= image_tag post.image, class: "index-img" %>
-      <% else %>
-        <img class="index-img" src="<%= "/images/test_sample.png" %>" alt="Index image cap">
-      <% end %>
-      <%= link_to(post.title, post_path(post.id)) %>
-    </div>
+  <div class="card">
+  <% if post.image.attached? %>
+   <%= image_tag post.image, class: "index-img d-block mx-auto" %>
+  <% else %>
+  <img class="index-img d-block mx-auto" src="<%= "/images/test_sample.png" %>" alt="Index image cap">
   <% end %>
-
-  <div class="category bg-warning"><%= link_to "次のシーズンで注力", posts_index_next_path %></div>
-  <% @post2.each do |post| %>
-    <div class="post-index-item mb-20">
-      <% if post.image.attached? %>
-        <%= image_tag post.image, class: "index-img" %>
-      <% else %>
-        <img class="index-img" src="<%= "/images/test_sample.png" %>" alt="Index image cap">
-      <% end %>
-      <%= link_to(post.title, post_path(post.id)) %>
-    </div>
-  <% end %>
-
-      <div class="category bg-info"><%= link_to "探してます", posts_index_wanted_path %></div>
-     <% @post3.each do |post| %>
-      <div class="post-index-item mb-20">
-      <% if post.image.attached? %>
-        <%= image_tag post.image, class: "index-img" %>
-      <% else %>
-        <img class="index-img" src="<%= "/images/test_sample.png" %>" alt="Index image cap">
-      <% end %>
-      <%= link_to(post.title, post_path(post.id)) %>
-    </div>
+  <div class="card-body">
+    <h5 class="card-title"><%=post.title %></h5>
+    <% if user_signed_in? %>
+    <p class="card-text">投稿者：<%=post.user.nickname %></p>
     <% end %>
-  
+    <p class="card-text">投稿日：<%=post.created_at.strftime('%Y/%m/%d') %></p>
+    <div class="text-center">
+    <a href=<%=post_path(post.id)%> class="btn btn-secondary">この投稿を見る</a>
+    </div>
+  </div>
+  </div>
+<% end %>
+</div>
+</div>
+
+  <div class="container-w">
+  <div class="index-category">
+  <div class="left"><span style="font-size:180%"><b>次のシーズンで注力  </b></span>の最近の投稿 </div>
+  <div class="right"><span style="font-size:150%"><%= link_to "すべて見る", posts_index_next_path, class:"index-category-link" %></span></div>
+  </div>
+  <div class="row row-cols-3">
+  <% @post2.each do |post| %>
+  <div class="card">
+  <% if post.image.attached? %>
+   <%= image_tag post.image, class: "index-img d-block mx-auto" %>
+  <% else %>
+  <img class="index-img d-block mx-auto" src="<%= "/images/test_sample.png" %>" alt="Index image cap">
+  <% end %>
+  <div class="card-body">
+    <h5 class="card-title"><%=post.title %></h5>
+    <% if user_signed_in? %>
+    <p class="card-text">投稿者：<%=post.user.nickname %></p>
+    <% end %>
+    <p class="card-text">投稿日：<%=post.created_at.strftime('%Y/%m/%d') %></p>
+    <div class="text-center">
+    <a href=<%=post_path(post.id)%> class="btn btn-secondary">この投稿を見る</a>
+    </div>
+  </div>
+  </div>
+<% end %>
+</div>
+</div>
+
+
+
+
+  <div class="container-w">
+  <div class="index-category">
+  <div class="left"><span style="font-size:180%"><b>探してます  </b></span>の最近の投稿 </div>
+  <div class="right"><span style="font-size:150%"><%= link_to "すべて見る", posts_index_wanted_path, class:"index-category-link" %></span></div>
+  </div>
+  <div class="row row-cols-3">
+  <% @post3.each do |post| %>
+  <div class="card">
+  <% if post.image.attached? %>
+   <%= image_tag post.image, class: "index-img d-block mx-auto" %>
+  <% else %>
+  <img class="index-img d-block mx-auto" src="<%= "/images/test_sample.png" %>" alt="Index image cap">
+  <% end %>
+  <div class="card-body">
+    <h5 class="card-title"><%=post.title %></h5>
+    <% if user_signed_in? %>
+    <p class="card-text">投稿者：<%=post.user.nickname %></p>
+    <% end %>
+    <p class="card-text">投稿日：<%=post.created_at.strftime('%Y/%m/%d') %></p>
+    <div class="text-center">
+    <a href=<%=post_path(post.id)%> class="btn btn-secondary">この投稿を見る</a>
+    </div>
+  </div>
+  </div>
+<% end %>
+</div>
+</div>
+
+</div>
+</div>
+
+</body>
+
+
+<%= render "shared/footer"%>
