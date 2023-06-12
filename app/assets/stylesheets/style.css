@@ -1,0 +1,34 @@
+.index-img {
+  width: 150px;
+}
+
+.img-hidden {
+  height: 300px;
+  overflow: hidden;
+}
+
+
+.container {
+  margin-top: 80px;
+  width: 80vw;
+}
+
+.container-w{
+  margin-bottom: 80px
+}
+
+.index-img {
+  width: 15vw;
+  height: 15vw;
+  object-fit: cover;
+}
+
+.index-category-link{
+  text-decoration: none;
+  color: gray;
+}
+
+.index-category {
+  display: flex;
+  justify-content: space-between;
+}
