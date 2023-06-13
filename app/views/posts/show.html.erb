@@ -18,7 +18,7 @@
         <% if @post.image.attached? %>
      <%= image_tag @post.image, class: "post-show-img d-block mx-auto" %>
       <% else %>
-        <img class="post-show-img mx-auto d-block" src="<%= "/images/test_sample.png" %>" alt="Index image cap">
+        <img class="post-show-img mx-auto d-block" src="<%= "/images/test_sample.png" %>" alt="画像">
       <% end %>
     </div>
     <div class="col-md-6">
@@ -40,7 +40,12 @@
         </tr>
         <tr>
           <th class="detail-item">産地</th>
-          <td class="detail-value"><%= @post.country.name %></td>
+          <td class="detail-value">
+          <% if @post.country.id == 1%>
+          <%= "---" %>
+          <% else %>
+          <%= @post.country.name %>
+          <% end %></td>
         </tr>
         <tr>
           <th class="detail-item">ワインタイプ</th>
@@ -49,16 +54,32 @@
         <tr>
           <th class="detail-item">味わい</th>
           <td class="detail-value">
+          <% if @post.taste.id == 1%>
+          <%= "---" %>
+          <% else %>
           <%= @post.taste.name %>
+          <% end %>
           </td>
         </tr>
         <tr>
           <th class="detail-item">主体のブドウ品種</th>
-          <td class="detail-value"><%= @post.grape.name %></td>
+          <td class="detail-value">
+          <% if @post.grape.id == 1%>
+          <%= "---" %>
+          <% else %>
+          <%= @post.grape.name %>
+          <% end %>
+          </td>
         </tr>
          <tr>
           <th class="detail-item">参考上代価格帯(税抜)</th>
-          <td class="detail-value"><%= @post.price.name %></td>
+          <td class="detail-value">
+          <% if @post.grape.id == 1%>
+          <%= "---" %>
+          <% else %>
+          <%= @post.price.name %>
+          <%end%>
+          </td>
         </tr>
          <tr>
           <th class="detail-item">補足コメント</th>
@@ -95,18 +116,23 @@
   <div class="comment-container">
      <div >
       <h4>＜コメント一覧＞</h4>
+      <% if @comments.empty? %>
+      <strong><p>※※※ まだコメントは投稿されていません ※※※</p></strong>
+      <% else %>
       <% @comments.each do |comment| %>
         <p>
           <strong><%= link_to comment.user.nickname, user_profiles_path(comment.user.id), class: "link-name" %>：</strong>
           <%= comment.text %>
         </p>
+        <% end %>
       <% end %>
     </div>
 
     <div class="comment-form">
       <% if user_signed_in? %>
-      <%= form_with model: [@post, @comment], class: "comment-form" do |form| %>
-        <%= form.text_area :text, placeholder: "コメントする", rows: "2",size: "50" %><br>
+      <%= form_with model: [@post, @comment] do |form| %>
+      <!--コメント欄-->
+        <%= form.text_area :text, class: "form-control input-md col-md-5" %><br>
         <%= form.submit "コメントを投稿する", class: "btn btn-primary btn-lg" %>
         <% end %>
         <% else %>
