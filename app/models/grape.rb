@@ -1,6 +1,6 @@
 class Grape < ActiveHash::Base
   self.data = [
-    { id: 1, name: '---' },
+    { id: 1, name: '選択してください' },
     { id: 2, name: 'カベルネ・ソーヴィニヨン' },
     { id: 3, name: 'ピノ・ノワール' },
     { id: 4, name: 'メルロ' },

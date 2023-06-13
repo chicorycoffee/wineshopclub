@@ -1,6 +1,6 @@
 class Taste < ActiveHash::Base
   self.data = [
-    { id: 1, name: '---' },
+    { id: 1, name: '選択してください' },
     { id: 2, name: 'ライトボディ' },
     { id: 3, name: 'ミディアムボディ' },
     { id: 4, name: 'フルボディ' },

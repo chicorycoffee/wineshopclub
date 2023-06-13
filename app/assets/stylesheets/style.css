@@ -1,4 +1,15 @@
+/*header*/
+
+.navbar-brand {
+  font-family: 'Itim', cursive;
+}
+
+
 /* post-index */
+
+.app-title {
+  font-family: 'Itim', cursive;
+}
 
 .img-hidden {
   height: 300px;
@@ -89,3 +100,5 @@
 .comment-container{
   margin-bottom: 30px;
 }
+
+/*post-new*/

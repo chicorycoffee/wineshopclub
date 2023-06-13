@@ -1,6 +1,6 @@
 class Price < ActiveHash::Base
   self.data = [
-    { id: 1, name: '---' },
+    { id: 1, name: '選択してください' },
     { id: 2, name: '1,000円未満' },
     { id: 3, name: '1,000円以上〜1,500円未満' },
     { id: 4, name: '1,500円以上〜2,000円未満' },
