@@ -1,37 +1,27 @@
 <%= render "shared/header"%>
-
-<div class="post-show">
-  <div class="post-box">
-   <h2 class="genre">
-   <%=@post.genre.name %>
-   </h2>
+<body>
+<div class="post-show-wrapper">
+  <div class="post-show-top text-center">
+   <h1 class="genre">
+   <b><%=@post.genre.name %></b></h1>
     <h2 class="title">
       <%= @post.title %>
     </h2>
-    <h2 class="user-nickname" %>
-    <%= "by " %>
-    <%= link_to @post.user.nickname, "/users/#{@post.user.id}/profiles" %>
-    </h2>
-    <div class="post-img-content">
+    <h3>
+    <%= "投稿者：" %><%= link_to @post.user.nickname, "/users/#{@post.user.id}/profiles", class: "link-name" %>
+    <h3>
+  </div>
+
+    <div class="container container-s">
+    <div class="row">
+    <div class="col-md-6">
         <% if @post.image.attached? %>
-        <%= image_tag @post.image, class: "post-box-img" %>
+     <%= image_tag @post.image, class: "post-show-img d-block mx-auto" %>
       <% else %>
-        <img class="index-img" src="<%= "/images/test_sample.png" %>" alt="Index image cap">
+        <img class="post-show-img mx-auto d-block" src="<%= "/images/test_sample.png" %>" alt="Index image cap">
       <% end %>
     </div>
-    <div>
-    <% if user_signed_in? && current_user.id == @post.user_id %>
-    <%= link_to "商品の編集", edit_post_path(@post.id), method: :get, class: "post-red-btn" %>
-    <p class="or-text">or</p>
-    <%= link_to "削除", post_path(@post.id), method: :delete, class:"post-destroy" %>
-    <% end %>
-    </div>
-<div>
-    <% if current_user != @post.user %>
-    <%= render 'post', post: @post %>
-    <% end %>
-</div>
-
+    <div class="col-md-6">
     <table class="table-striped">
     <tbody>
         <tr>
@@ -82,13 +72,32 @@
         </tr>
       </tbody>
       </table>
+      <p>投稿日：<%=@post.created_at.strftime('%Y/%m/%d') %></p>
+      </div>
+      </div>
+      </div>
 
-  <div class="container">
+  <div class="action-box">
+   <div class="actions mt-3 text-center">
+    <% if user_signed_in? && current_user.id == @post.user_id %>
+    <%= button_to "投稿の編集", edit_post_path(@post.id), method: :get, class: "btn btn-primary btn-lg" %>
+    <%= button_to "削除", post_path(@post.id), method: :delete, class:"btn btn-danger btn-lg" %>
+    <% end %>
+    </div>
+    </div>
+
+   <div>
+    <% if current_user != @post.user %>
+    <%= render 'post', post: @post %>
+    <% end %>
+    </div>
+
+  <div class="comment-container">
      <div >
       <h4>＜コメント一覧＞</h4>
       <% @comments.each do |comment| %>
         <p>
-          <strong><%= link_to comment.user.nickname, user_profiles_path(comment.user.id) %>：</strong>
+          <strong><%= link_to comment.user.nickname, user_profiles_path(comment.user.id), class: "link-name" %>：</strong>
           <%= comment.text %>
         </p>
       <% end %>
@@ -97,11 +106,14 @@
     <div class="comment-form">
       <% if user_signed_in? %>
       <%= form_with model: [@post, @comment], class: "comment-form" do |form| %>
-        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-        <%= form.submit "コメントを投稿する" %>
+        <%= form.text_area :text, placeholder: "コメントする", rows: "2",size: "50" %><br>
+        <%= form.submit "コメントを投稿する", class: "btn btn-primary btn-lg" %>
         <% end %>
         <% else %>
         <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
      <% end %>
   </div>
 </div>
+
+</body>
+<%= render "shared/footer"%>
