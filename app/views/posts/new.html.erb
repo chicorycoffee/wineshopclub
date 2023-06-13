@@ -1,9 +1,8 @@
 <%= render "shared/header"%>
 
-<div class="outer-content">
-
-  <div class="inner-content">
+<div class="countainer outer-content">
     <h2 class="post-title text-center", style="font-size:180%">新規投稿</h2>
+  <div class="form-group inner-content">
     <%= form_with model: @post, url:posts_path, local: true do |f| %>
     <%= render 'shared/error_messages', model: f.object %>
 
@@ -65,7 +64,7 @@
     <%= f.text_area :text,  maxlength:"140", class:"form-control input-lg col-lg-5" %>
     <div class="form-text">最大140文字。ワインについて補足のコメントをお願いします</div>
 
-   <div class="img-upload">
+    <div class="img-upload">
     <div class="bold-text">
       画像
     </div>
@@ -78,8 +77,6 @@
     <div class="new-submit">
     <input class="btn btn-primary btn-lg" type="submit" value="投稿する">
     </div>
-
-  </div>
   </div>
 <% end %>
 </div>
