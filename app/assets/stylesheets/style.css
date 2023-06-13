@@ -4,7 +4,6 @@
   font-family: 'Itim', cursive;
 }
 
-
 /* post-index */
 
 .app-title {
@@ -146,4 +145,23 @@
 .new-submit {
   margin: 20px 0;
   text-align: center;
+}
+
+
+/*profile-show*/
+.profile-buttons {
+  margin-top: 20px;
+}
+
+.table-striped {
+  margin-bottom: 20px;
+}
+
+.container-posts
+{
+  margin-top: 0px;
+}
+
+.profile-show-wrapper {
+  margin-top: 20px;
 }
