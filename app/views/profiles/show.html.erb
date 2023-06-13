@@ -1,5 +1,5 @@
 <%= render "shared/header"%>
-<body>
+
 <div class="profile-show-wrapper">
   <div class="profile-show-top text-center">
    <h1><b><%="#{@user.nickname}さんのページ" %></b></h1>
@@ -8,17 +8,13 @@
 <div class="container">
 <div class="row">
 <div class="col-md-6">
-<% if current_user == @user %>
-<span style="font-size:150%">ワインショップ情報</span>
-<% else %>
-<%= @user.nickname + " さんの ワインショップ情報"%>
-<% end %>
+<span style="font-size:150%"><%= @user.nickname + "さんのワインショップ情報"%></span>
 <table class="table-striped", style="width: 80%">
 <tbody>
 <tr>
 <th class="detail-item">店名</th>
 <td class="detail-value">
-<% if Profile.where(user_id: @user.id).exists? %>
+<% if Profile.where(user_id: @user.id).exists? && @user.profile.shop.present? %>
 <%= @user.profile.shop %>
 <% else %>
 <%= "---" %>
@@ -28,18 +24,28 @@
 <tr>
 <th class="detail-item">所在地</th>
 <td class="detail-value">
-<% if Profile.where(user_id: @user.id).exists? %>
+<% if Profile.where(user_id: @user.id).exists? && @user.profile.id != 1%>
 <%= @user.profile.prefecture.name %>
+<% else %>
+<%= "---" %>
+<% end %>
+</td> 
+</tr>
+<tr>
+<th class="detail-item">主要顧客層</th>
+<td class="detail-value">
+<% if Profile.where(user_id: @user.id).exists? && @user.profile.customer.id != 1%>
+<%= @user.profile.customer.name %>
 <% else %>
 <%= "---" %>
 <% end %>
 </td>
 </tr>
 <tr>
-<th class="detail-item">主要顧客層</th>
+<th class="detail-item">注力価格帯</th>
 <td class="detail-value">
-<% if Profile.where(user_id: @user.id).exists? %>
-<%= @user.profile.customer.name %>
+<% if Profile.where(user_id: @user.id).exists? && @user.profile.price.id != 1 %>
+<%= @user.profile.price.name %>
 <% else %>
 <%= "---" %>
 <% end %>
@@ -48,7 +54,7 @@
 <tr>
 <th class="detail-item">注力産地</th>
 <td class="detail-value">
-<% if Profile.where(user_id: @user.id).exists?  %>
+<% if Profile.where(user_id: @user.id).exists? && @user.profile.country.id != 1 %>
 <%= @user.profile.country.name %>
 <% else %>
 <%= "---" %>
@@ -58,7 +64,7 @@
 <tr>
 <th class="detail-item">紹介コメント</th>
 <td class="detail-value">
-<% if Profile.where(user_id: @user.id).exists? %>
+<% if Profile.where(user_id: @user.id).exists? && @user.profile.introduction.present? %>
 <%= @user.profile.introduction %>
 <% else %>
 <%= "---" %>
@@ -72,13 +78,10 @@
 <% if Profile.where(user_id: @user.id).exists? %>
 <%= button_to "ショップ情報の編集", edit_user_profile_path(@user.id, @user.profile.id), method: :get, class: "btn btn-primary" %>
 <% else %>
-<%= button_to "ショップ情報の入力", new_user_profile_path(@user.id), method: :get, class: "btn btn-primary"%>
+<%= button_to "ショップ情報の登録", new_user_profile_path(@user.id), method: :get, class: "btn btn-primary"%>
+<strong><p>※※※ショップ情報はメンバーのみ閲覧できます※※※</p></strong>
 <% end %>
 </span>
-
-
-
-
 
 
 <% if current_user != @user %>
@@ -99,12 +102,11 @@
 
 <div class="col-md-6">
   <div class="container container-posts">
-  <% if current_user == @user %>
-  <span style="font-size:150%">投稿一覧</span>
-  <% else %>
-  <%= @user.nickname + " さんの投稿一覧"%>
-  <% end %>
+   <span style="font-size:150%"><%= @user.nickname + "さんの投稿一覧"%></span>
     <div class="row row-cols-2">
+    <% if @posts.empty? %>
+    <strong><p>※※※投稿はまだありません※※※</p></strong>
+    <% else %>
         <% @posts.each do |post| %>
           <div class="card">
           <% if post.image.attached? %>
@@ -121,10 +123,10 @@
           </div>
           </div>
         <% end %>
+        <% end %>
     </div>
   </div>
 </div>
 </div>
 </div>
 </div>
-</body>

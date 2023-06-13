@@ -1,9 +1,8 @@
 <%= render "shared/header"%>
 
-<div class="outer-content">
-
-  <div class="inner-content">
-    <h2 class="post-title text-center", style="font-size:180%">投稿を編集</h2>
+<div class="countainer outer-content">
+  <h2 class="post-title text-center", style="font-size:180%">投稿を編集</h2>
+  <div class="form-group inner-content">
     <%= form_with model: @post, local: true do |f| %>
     <%= render 'shared/error_messages', model: f.object %>
 
@@ -73,15 +72,11 @@
     <%= f.file_field :image, id:"item-image" %>
     <div class="form-text"> クリックしてファイルをアップロード</div>
     </div>
-    </div>
 
     <div class="new-submit">
     <input class="btn btn-primary btn-lg" type="submit" value="変更を保存する">
     </div>
-
-  </div>
-  </div>
-<% end %>
+    <% end %>
 </div>
 </div>
 
