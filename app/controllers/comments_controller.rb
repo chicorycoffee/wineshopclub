@@ -1,7 +1,10 @@
 class CommentsController < ApplicationController
   def create
     @comment = Comment.create(comment_params)
-    redirect_to post_path(@comment.post.id)
+    @post = Post.find(params[:post_id])
+    if @comment.save
+      CommentChannel.broadcast_to @post, { comment: @comment, user: @comment.user }
+    end
   end
 
   private
