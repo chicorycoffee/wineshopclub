@@ -74,6 +74,7 @@
 </tbody>
 </table>
 
+<% if current_user == @user %>
 <span class="profile-buttons">
 <% if Profile.where(user_id: @user.id).exists? %>
 <%= button_to "ショップ情報の編集", edit_user_profile_path(@user.id, @user.profile.id), method: :get, class: "btn btn-primary" %>
@@ -82,23 +83,27 @@
 <strong><p>※※※ショップ情報はメンバーのみ閲覧できます※※※</p></strong>
 <% end %>
 </span>
+<% end %>
 
-
+<span class="container-follow">
 <% if current_user != @user %>
 <% if @user.followed_by?(current_user) %>
-<%=link_to "フォロー中", user_relationships_path(@user.id),class: "btn btn-outline-success" , method: :delete %>
+<%=link_to "フォロー中", user_relationships_path(@user.id),class: "btn btn-success", method: :delete %>
 <% else %>
-<%=link_to "フォローする", user_relationships_path(@user.id),class: "btn btn-primary" ,method: :post %>
+<%=link_to "フォローする", user_relationships_path(@user.id),class: "btn btn-outline-success", method: :post %>
 <% end %>
 <% end %>
 
+<p class="follow-title", style="font-size:150%"><%= @user.nickname + "さんのフォロワー"%></p>
 <% if @user.followers.exists? %>
-<h3>フォロワー</h3>
 <% @user.followers.each do |user| %>
-<p class=“f-user”><%= link_to user.nickname, "/users/#{user.id}/profiles" %></p>
+<p class=“followers”><%= link_to user.nickname, "/users/#{user.id}/profiles", class: "followers" %></p>
 <% end %>
+<% else %>
+<strong><p>※※※フォロワーはまだいません※※※</p></strong>
 <% end %>
 </div>
+
 
 <div class="col-md-6">
   <div class="container container-posts">

@@ -176,3 +176,18 @@
 .container-likes {
   text-align: center;
 }
+
+/*profile-show*/
+
+.container-follow {
+  margin-top: 20px;
+}
+
+.follow-title {
+  margin-top: 20px;
+}
+
+.followers {
+  text-decoration: none;
+  color: gray;
+}
