@@ -166,3 +166,13 @@
   margin-top: 20px;
 }
 
+/*likes*/
+.post_likes {
+  text-decoration: none;
+  font-size: 180%;
+  color: red;
+}
+
+.container-likes {
+  text-align: center;
+}

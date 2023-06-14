@@ -107,9 +107,11 @@
     </div>
     </div>
 
-   <div>
+   <div class="container-likes">
     <% if current_user != @post.user %>
     <%= render 'post', post: @post %>
+    <% else %>
+    <span class = "post_likes_count"><%= "#{@post.likes.count}人がいいねをしています!" %>
     <% end %>
     </div>
 
