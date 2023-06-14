@@ -1,4 +1,7 @@
 class ProfilesController < ApplicationController
+  before_action :authenticate_user!, only: [:show, :new, :edit, :create, :update]
+  before_action :redirect, only: [:new, :edit]
+
   def show
     @user = User.find(params[:user_id])
     @posts = Post.where(user_id: @user.id).order('created_at DESC') 
@@ -38,5 +41,12 @@ class ProfilesController < ApplicationController
   private
   def profile_params
     params.require(:profile).permit(:shop, :prefecture_id, :customer_id, :price_id, :country_id, :introduction).merge(user_id: current_user.id)
+  end
+
+  def redirect
+    @user =User.find(params[:user_id])
+    unless current_user == @user
+      redirect_to "/users/#{params[:user_id]}/profiles"
+    end
   end
 end
