@@ -1,44 +1,43 @@
 <%= render "shared/header"%>
 
-<body>
 <div class="wrapper" >
-<div class="container-fluid img-hidden">
-<img src="/images/index5.jpg" class="img-fluid">
-</div>
-<div class="index-message text-center">
-『今売れてます』ジャンルでは、現在店頭で売れているワインの投稿をまとめています。<br>
-店頭販促や試飲メニューとして、今売るべきワインが揃っています。
+  <div class="container-fluid img-hidden">
+    <img src="/images/index5.jpg" class="img-fluid">
+  </div>
+  <div class="index-message text-center">
+  『今売れてます』ジャンルでは、現在店頭で売れているワインの投稿をまとめています。<br>
+  店頭販促や試飲メニューとして、今売るべきワインが揃っています。
+  </div>
+
+  <div class="container container-w">
+      <div class="index-category">
+      <div class="left"><span style="font-size:180%"><b>今売れてます  </b></span>のすべての投稿 </div>
+      </div>
+
+      <div class="row row-cols-3">
+      <% @posts.each do |post| %>
+      <div class="card">
+        <% if post.image.attached? %>
+          <%= image_tag post.image, class: "index-img d-block mx-auto" %>
+        <% else %>
+          <img class="index-img d-block mx-auto" src="<%= "/images/test_sample.png" %>" alt="Index image cap">
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%=post.title %></h5>
+          <% if user_signed_in? %>
+            <p class="card-text">投稿者：<%=post.user.nickname %></p>
+          <% end %>
+          <p class="card-text">投稿日：<%=post.created_at.strftime('%Y/%m/%d') %></p>
+
+          <div class="text-center">
+            <a href=<%=post_path(post.id)%> class="btn btn-secondary">この投稿を見る</a>
+          </div>
+        </div>
+      </div>
+      <% end %>
+  </div>
 </div>
 
-<div class="container">
-  <div class="container-w">
-  <div class="index-category">
-  <div class="left"><span style="font-size:180%"><b>今売れてます  </b></span>のすべての投稿 </div>
-  </div>
-  <div class="row row-cols-3">
-  <% @posts.each do |post| %>
-  <div class="card">
-  <% if post.image.attached? %>
-   <%= image_tag post.image, class: "index-img d-block mx-auto" %>
-  <% else %>
-  <img class="index-img d-block mx-auto" src="<%= "/images/test_sample.png" %>" alt="Index image cap">
-  <% end %>
-  <div class="card-body">
-    <h5 class="card-title"><%=post.title %></h5>
-    <% if user_signed_in? %>
-    <p class="card-text">投稿者：<%=post.user.nickname %></p>
-    <% end %>
-    <p class="card-text">投稿日：<%=post.created_at.strftime('%Y/%m/%d') %></p>
-    <div class="text-center">
-    <a href=<%=post_path(post.id)%> class="btn btn-secondary">この投稿を見る</a>
-    </div>
-  </div>
-  </div>
-<% end %>
-</div>
-</div>
-<div>
-  </div>
-  </body>
+
 
 <%= render "shared/footer"%>
