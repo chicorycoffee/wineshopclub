@@ -18,5 +18,4 @@ class Price < ActiveHash::Base
   include ActiveHash::Associations
   has_many :posts
   has_many :profiles
-  
-  end
+end

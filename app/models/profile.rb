@@ -7,7 +7,6 @@ class Profile < ApplicationRecord
   belongs_to :price
   belongs_to :country
 
-  validates :introduction, {length: {maximum: 140}}
-  validates :shop, {length: {maximum: 15}}
-
+  validates :introduction, { length: { maximum: 140 } }
+  validates :shop, { length: { maximum: 15 } }
 end

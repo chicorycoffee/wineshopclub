@@ -15,14 +15,14 @@ class Post < ApplicationRecord
   belongs_to :taste
   belongs_to :type
 
-  validates :genre_id, numericality: { other_than: 1 , message: "を選んでください"}
-  validates :country_id, numericality: { other_than: 1 , message: "を選んでください"}
-  validates :type_id, numericality: { other_than: 1 , message: "を選んでください"}
+  validates :genre_id, numericality: { other_than: 1, message: 'を選んでください' }
+  validates :country_id, numericality: { other_than: 1, message: 'を選んでください' }
+  validates :type_id, numericality: { other_than: 1, message: 'を選んでください' }
 
-  validates :text, {length: {maximum: 140}}
-  validates :title, {length: {maximum: 30}}
-  validates :name, {length: {maximum: 50}}
-  validates :importer, {length: {maximum: 15}}
+  validates :text, { length: { maximum: 140 } }
+  validates :title, { length: { maximum: 30 } }
+  validates :name, { length: { maximum: 50 } }
+  validates :importer, { length: { maximum: 15 } }
 
   def liked_by(user)
     likes.where(user_id: user.id).exists?

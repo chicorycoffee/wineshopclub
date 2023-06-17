@@ -47,22 +47,22 @@ RSpec.describe Post, type: :model do
       it 'titleが空では登録できない' do
         @post.title = ''
         @post.valid?
-        expect(@post.errors.full_messages).to include("キャッチコピーを入力してください")
+        expect(@post.errors.full_messages).to include('キャッチコピーを入力してください')
       end
       it 'titeが31文字以上では登録できない' do
         @post.title = '仮' * 31
         @post.valid?
-        expect(@post.errors.full_messages).to include("キャッチコピーは30文字以内で入力してください")
+        expect(@post.errors.full_messages).to include('キャッチコピーは30文字以内で入力してください')
       end
       it 'nameが空では登録できない' do
         @post.name = ''
         @post.valid?
-        expect(@post.errors.full_messages).to include("商品名を入力してください")
+        expect(@post.errors.full_messages).to include('商品名を入力してください')
       end
       it 'nameが51文字以上では登録できない' do
         @post.name = '仮' * 51
         @post.valid?
-        expect(@post.errors.full_messages).to include("商品名は50文字以内で入力してください")
+        expect(@post.errors.full_messages).to include('商品名は50文字以内で入力してください')
       end
       it 'importerが16文字以上では登録できない' do
         @post.importer = '仮' * 16
@@ -90,7 +90,7 @@ RSpec.describe Post, type: :model do
         expect(@post.errors.full_messages).to include('ワインタイプを選んでください')
       end
       it 'textが141字以上では登録できない' do
-        @post.text = '仮'* 141
+        @post.text = '仮' * 141
         @post.valid?
         expect(@post.errors.full_messages).to include('補足コメントは140文字以内で入力してください')
       end

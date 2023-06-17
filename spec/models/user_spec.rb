@@ -16,24 +16,24 @@ RSpec.describe User, type: :model do
       it 'nicknameが空では登録できない' do
         @user.nickname = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("ニックネームを入力してください")
+        expect(@user.errors.full_messages).to include('ニックネームを入力してください')
       end
 
       it 'nicknameが11文字以上では登録できない' do
         @user.nickname = 'アイウエオかきくけこさ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("ニックネームは10文字以内で入力してください")
+        expect(@user.errors.full_messages).to include('ニックネームは10文字以内で入力してください')
       end
 
       it 'emailが空では登録できない' do
         @user.email = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Eメールを入力してください")
+        expect(@user.errors.full_messages).to include('Eメールを入力してください')
       end
       it 'passwordが空では登録できない' do
         @user.password = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("パスワードを入力してください")
+        expect(@user.errors.full_messages).to include('パスワードを入力してください')
       end
       it 'passwordが5文字以下では登録できない' do
         @user.password = 'abc12'
@@ -45,7 +45,7 @@ RSpec.describe User, type: :model do
       it 'passwordとpassword_confirmationが不一致では登録できない' do
         @user.password_confirmation = 'abc1234'
         @user.valid?
-        expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
+        expect(@user.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
       end
 
       it 'passwordが英数字でないと登録できない' do
