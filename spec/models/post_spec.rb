@@ -89,6 +89,11 @@ RSpec.describe Post, type: :model do
         @post.valid?
         expect(@post.errors.full_messages).to include('ワインタイプを選んでください')
       end
+      it 'textが141字以上では登録できない' do
+        @post.text = '仮'* 141
+        @post.valid?
+        expect(@post.errors.full_messages).to include('補足コメントは140文字以内で入力してください')
+      end
       it 'userが紐付いていないと保存できない' do
         @post.user = nil
         @post.valid?
