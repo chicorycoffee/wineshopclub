@@ -13,7 +13,6 @@ class LikesController < ApplicationController
     render 'destroy.js.erb'
   end
 
-
   def set_post
     @post = Post.find(params[:post_id])
   end
