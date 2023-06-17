@@ -14,5 +14,12 @@ ja:
         grape_id: 主体のブドウ品種
         price_id: 参考上代価格帯(税別)
         text: 補足コメント
+      profile:
+        shop: 店名
+        prefecture_id: 所在地
+        customer_id: 主要顧客層
+        price_id: 注力価格帯
+        country_id: 注力産地
+        introduction: 紹介コメント
 
 
