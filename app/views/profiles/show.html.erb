@@ -2,13 +2,17 @@
 
 <div class="profile-show-wrapper">
   <div class="profile-show-top text-center">
-   <h1><b><%="#{@user.nickname}さんのページ" %></b></h1>
+   <%if current_user.id == @user.id %>
+   <h1><b><%="#{@user.nickname}（あなた）のページ" %></b></h1>
+   <% else %>
+   <h1><b><%="#{@user.nickname} のページ" %></b></h1>
+   <% end %>
   </div>
 
 <div class="container">
 <div class="row">
 <div class="col-md-6">
-<span style="font-size:150%"><%= @user.nickname + "さんのワインショップ情報"%></span>
+<span style="font-size:150%">ワインショップ情報</span>
 <table class="table-striped", style="width: 80%">
 <tbody>
 <tr>
@@ -94,7 +98,7 @@
 <% end %>
 <% end %>
 
-<p class="follow-title", style="font-size:150%"><%= @user.nickname + "さんのフォロワー"%></p>
+<p class="follow-title", style="font-size:150%">フォロワー一覧</p>
 <% if @user.followers.exists? %>
 <% @user.followers.each do |user| %>
 <p class=“followers”><%= link_to user.nickname, "/users/#{user.id}/profiles", class: "followers" %></p>
@@ -107,7 +111,7 @@
 
 <div class="col-md-6">
   <div class="container container-posts">
-   <span style="font-size:150%"><%= @user.nickname + "さんの投稿一覧"%></span>
+   <span style="font-size:150%">投稿一覧</span>
     <div class="row row-cols-2">
     <% if @posts.empty? %>
     <strong><p>※※※投稿はまだありません※※※</p></strong>

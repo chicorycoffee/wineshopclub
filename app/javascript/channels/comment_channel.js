@@ -18,7 +18,8 @@ if(location.pathname.match(/\/posts\/\d/)){
   received(data) {
     const html = `
         <div class="comment">
-        <p class="user-info"><strong><a class="link-name", href="/users/${data.user.id}/profiles">${data.user.nickname}</a>：</strong>${data.comment.text}</p>
+        <p class="user-info"><strong><a class="link-name" href="/users/${data.user.id}/profiles">${data.user.nickname}</a>：</strong>
+        ${data.comment.text}</p>
         </div>`
       const comments = document.getElementById("comments")
       comments.insertAdjacentHTML('beforeend', html)

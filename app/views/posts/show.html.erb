@@ -8,7 +8,11 @@
       <%= @post.title %>
     </h2>
     <h3>
+    <% if current_user.id == @post.user.id %>
+    <%= "投稿者：#{@post.user.nickname}（あなた）"%>
+    <% else %>
     <%= "投稿者：" %><%= link_to @post.user.nickname, "/users/#{@post.user.id}/profiles", class: "link-name" %>
+    <% end %>
     <h3>
   </div>
 
