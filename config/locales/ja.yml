@@ -21,5 +21,7 @@ ja:
         price_id: 注力価格帯
         country_id: 注力産地
         introduction: 紹介コメント
+      comment:
+        text: コメント
 
 
