@@ -13,26 +13,13 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/users/<%= current_user.id %>/profiles">マイページ</a>
         </li>
-        <% end %>
+      <% end %>
         <li class="nav-item">
           <a class="nav-link" href="/posts/new">新規投稿</a>
         </li>
         <li class="nav-item" class="text-decoration-none">
-         <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link' %>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            投稿ジャンル
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/posts/index/hot">今売れてます</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/posts/index/next">次のシーズンで注力</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/posts/index/wanted">探してます</a></li>
-          </ul>
-        </li>
-      </ul>
     
       <!--<form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -41,15 +28,25 @@
     </div>-->
 
     <% else %>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/users/sign_in">ログイン</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<%=new_user_registration_path%>">新規登録</a>
-        </li>
-        </ul>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/users/sign_in">ログイン</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%=new_user_registration_path%>">新規登録</a>
+          </li>
     <% end %>
-  </div>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">投稿ジャンル</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/posts/index/hot">今売れてます</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/posts/index/next">次のシーズンで注力</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/posts/index/wanted">探してます</a></li>
+              </ul>
+          </li>
+        </ul>
+      </div>
 </nav>
