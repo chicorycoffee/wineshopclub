@@ -1,132 +1,130 @@
 <%= render "shared/header"%>
-<body>
+
 <div class="post-show-wrapper">
   <div class="post-show-top text-center">
-   <h1 class="genre">
-   <b><%=@post.genre.name %></b></h1>
-    <h2 class="title">
-      <%= @post.title %>
-    </h2>
+    <h1 class="genre"><b><%=@post.genre.name %></b></h1>
+    <h2 class="title"><%= @post.title %></h2>
     <h3>
     <% if current_user.id == @post.user.id %>
     <%= "投稿者：#{@post.user.nickname}（あなた）"%>
     <% else %>
     <%= "投稿者：" %><%= link_to @post.user.nickname, "/users/#{@post.user.id}/profiles", class: "link-name" %>
     <% end %>
-    <h3>
+    </h3>
   </div>
 
-    <div class="container container-s">
+  <div class="container container-s">
     <div class="row">
-    <div class="col-md-6">
+      <div class="col-md-6">
         <% if @post.image.attached? %>
-     <%= image_tag @post.image, class: "post-show-img d-block mx-auto" %>
-      <% else %>
-        <img class="post-show-img mx-auto d-block" src="<%= "/images/test_sample.png" %>" alt="画像">
-      <% end %>
+          <%= image_tag @post.image, class: "post-show-img d-block mx-auto" %>
+        <% else %>
+          <img class="post-show-img mx-auto d-block" src="<%= "/images/test_sample.png" %>" alt="画像">
+        <% end %>
+      </div>
+      <div class="col-md-6">
+        <table class="table-striped">
+          <tbody>
+            <tr>
+              <th class="detail-item">商品名</th>
+              <td class="detail-value"><%= @post.name %></td>
+            </tr>
+            <tr>
+              <th class="detail-item">輸入業者・卸売業者名</th>
+              <td class="detail-value">
+                <% if @post.importer.present?%>
+                  <%= @post.importer %>
+                <% else %>
+                  <%= "---" %>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <th class="detail-item">産地</th>
+              <td class="detail-value">
+                <% if @post.country.id == 1%>
+                  <%= "---" %>
+                <% else %>
+                  <%= @post.country.name %>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <th class="detail-item">ワインタイプ</th>
+              <td class="detail-value"><%= @post.type.name %></td>
+            </tr>
+            <tr>
+              <th class="detail-item">味わい</th>
+              <td class="detail-value">
+                <% if @post.taste.id == 1%>
+                  <%= "---" %>
+                <% else %>
+                  <%= @post.taste.name %>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <th class="detail-item">主体のブドウ品種</th>
+              <td class="detail-value">
+                <% if @post.grape.id == 1%>
+                  <%= "---" %>
+                <% else %>
+                  <%= @post.grape.name %>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <th class="detail-item">参考上代価格帯(税抜)</th>
+              <td class="detail-value">
+                <% if @post.grape.id == 1%>
+                  <%= "---" %>
+                <% else %>
+                  <%= @post.price.name %>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <th class="detail-item">補足コメント</th>
+              <td class="detail-value">
+                <% if @post.text.present?%>
+                  <%= @post.text %>
+                <% else %>
+                  <%= "---" %>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>投稿日：<%=@post.created_at.strftime('%Y/%m/%d') %></p>
+      </div>
     </div>
-    <div class="col-md-6">
-    <table class="table-striped">
-    <tbody>
-        <tr>
-          <th class="detail-item">商品名</th>
-          <td class="detail-value"><%= @post.name %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">輸入業者・卸売業者名</th>
-          <td class="detail-value">
-          <% if @post.importer.present?%>
-          <%= @post.importer %>
-          <% else %>
-          <%= "---" %>
-          <% end %>
-          </td>
-        </tr>
-        <tr>
-          <th class="detail-item">産地</th>
-          <td class="detail-value">
-          <% if @post.country.id == 1%>
-          <%= "---" %>
-          <% else %>
-          <%= @post.country.name %>
-          <% end %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">ワインタイプ</th>
-          <td class="detail-value"><%= @post.type.name %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">味わい</th>
-          <td class="detail-value">
-          <% if @post.taste.id == 1%>
-          <%= "---" %>
-          <% else %>
-          <%= @post.taste.name %>
-          <% end %>
-          </td>
-        </tr>
-        <tr>
-          <th class="detail-item">主体のブドウ品種</th>
-          <td class="detail-value">
-          <% if @post.grape.id == 1%>
-          <%= "---" %>
-          <% else %>
-          <%= @post.grape.name %>
-          <% end %>
-          </td>
-        </tr>
-         <tr>
-          <th class="detail-item">参考上代価格帯(税抜)</th>
-          <td class="detail-value">
-          <% if @post.grape.id == 1%>
-          <%= "---" %>
-          <% else %>
-          <%= @post.price.name %>
-          <%end%>
-          </td>
-        </tr>
-         <tr>
-          <th class="detail-item">補足コメント</th>
-          <td class="detail-value">
-          <% if @post.text.present?%>
-          <%= @post.text %>
-          <% else %>
-          <%= "---" %>
-          <% end %>
-          </td>
-        </tr>
-      </tbody>
-      </table>
-      <p>投稿日：<%=@post.created_at.strftime('%Y/%m/%d') %></p>
-      </div>
-      </div>
-      </div>
+  </div>
 
   <div class="action-box">
-   <div class="actions mt-3 text-center">
-    <% if user_signed_in? && current_user.id == @post.user_id %>
-    <%= button_to "投稿の編集", edit_post_path(@post.id), method: :get, class: "btn btn-primary btn-lg" %>
-    <%= button_to "削除", post_path(@post.id), method: :delete, class:"btn btn-danger btn-lg" %>
-    <% end %>
+    <div class="actions mt-3 text-center">
+      <% if user_signed_in? && current_user.id == @post.user_id %>
+        <%= button_to "投稿の編集", edit_post_path(@post.id), method: :get, class: "btn btn-primary btn-lg" %>
+        <%= button_to "削除", post_path(@post.id), method: :delete, class:"btn btn-danger btn-lg" %>
+      <% end %>
     </div>
-    </div>
+  </div>
 
-   <div class="container-likes">
+  <div class="container-likes">
     <% if current_user != @post.user %>
-    <%= render 'post', post: @post %>
+      <%= render 'post', post: @post %>
     <% elsif current_user == @post.user && @post.likes.count == 0 %>
-    <span class = "post_likes_count"><%= "「いいね」はまだありません" %>    
+      <span class = "post_likes_count"><%= "「いいね」はまだありません" %>    
     <% else %>
-    <span class = "post_likes_count"><%= "#{@post.likes.count}人が「いいね」をしています!" %>
+      <span class = "post_likes_count"><%= "#{@post.likes.count}人が「いいね」をしています!" %>
     <% end %>
-    </div>
+  </div>
 
   <div class="comment-container">
-  <div id="js-comments">
-  <%= render partial: "comments/comment", locals: {comments: @comments} %></div>
-  <%= render partial: "comments/form", locals: {post: @post, comment: @comment}%>
+    <div id="js-comments">
+      <%= render partial: "comments/comment", locals: {comments: @comments} %>
+    </div>
+    <%= render partial: "comments/form", locals: {post: @post, comment: @comment}%>
   </div>
-  </div>
+</div>
 
-</body>
 <%= render "shared/footer"%>

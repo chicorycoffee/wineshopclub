@@ -1,85 +1,10 @@
 <%= render "shared/header"%>
 
-<div class="countainer outer-content">
-    <h2 class="post-title text-center", style="font-size:180%">新規投稿</h2>
-  <div class="form-group inner-content">
-    <%= form_with model: @post, url:posts_path, local: true do |f| %>
-    <%= render 'shared/error_messages', model: f.object %>
-
-    <div class="bold-text">
-      ジャンル
-    <span class="indispensable">必須</span>
+<div class="container outer-content">
+  <h2 class="post-title text-center", style="font-size:180%">新規投稿</h2>
+    <div class="form-group inner-content">
+      <%= render partial: 'form', locals: {post: @post} %>
     </div>
-    
-    <%= f.collection_select(:genre_id, Genre.all, :id, :name, {prompt: false}, {class:"form-control input-lg col-lg-5"}) %>
-
-    <div class="bold-text">
-      キャッチコピー
-      <span class="indispensable">必須</span>
-    </div>
-
-    <%= f.text_field :title, class:"form-control input-lg col-lg-5", maxlength:"30" %>
-    <div class="form-text">最大30文字。(例) キンキンに冷やす夏の定番</div>
-
-    <div class="bold-text">
-      商品名
-    <span class="indispensable">必須</span>
-    </div>
-    
-    <%= f.text_field :name, class:"form-control input-lg col-lg-5", maxlength:"50" %>
-    <div class="form-text">最大50文字。（例）ABCヴィンヤード シャルドネ 2020</div>
-    
-        <div class="bold-text">
-      産地
-    <span class="indispensable">必須</span>
-    </div>
-    <%= f.collection_select(:country_id, Country.all, :id, :name, {prompt: false}, {class:"form-control input-lg col-lg-5"})  %>
-     <div class="bold-text">
-      タイプ
-    <span class="indispensable">必須</span>
-    </div>
-    <%= f.collection_select(:type_id, Type.all, :id, :name, {prompt: false}, {class:"form-control input-lg col-md-5"})  %>
-
-    <div class="bold-text">
-     輸入業者・卸売業者名
-    </div>
-    <%= f.text_field :importer, class:"form-control input-lg col-lg-5", maxlength:"15", size: "30" %>
-        <div class="form-text">（例）ABCワイン商事</div>
-
-    <div class="bold-text">
-      味わい
-    </div>
-    <%= f.collection_select(:taste_id, Taste.all, :id, :name, {prompt: false}, {class:"form-control input-lg col-lg-5"})  %>
-        <div class="bold-text">
-      主体のブドウ品種
-    </div>
-    <%= f.collection_select(:grape_id, Grape.all, :id, :name, {prompt: false}, {class:"form-control input-lg col-lg-5"})  %>
-     <div class="bold-text">
-      参考上代価格帯(税抜)
-    </div>
-    <%= f.collection_select(:price_id, Price.all, :id, :name, {prompt: false}, {class:"form-control input-lg col-lg-5"})  %>
-    <div class="bold-text">
-      補足コメント
-    </div>
-    <%= f.text_area :text,  maxlength:"140", class:"form-control input-lg col-lg-5" %>
-    <div class="form-text">最大140文字。ワインについて補足のコメントをお願いします</div>
-
-    <div class="img-upload">
-    <div class="bold-text">
-      画像
-    </div>
-    <div class="click-upload">
-    <%= f.file_field :image, id:"item-image" %>
-    <div class="form-text"> クリックしてファイルをアップロード</div>
-    </div>
-    </div>
-
-    <div class="new-submit">
-    <input class="btn btn-primary btn-lg" type="submit" value="投稿する">
-    </div>
-  </div>
-<% end %>
-</div>
 </div>
 
 <%= render "shared/footer"%>
