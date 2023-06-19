@@ -98,14 +98,43 @@
             <% end %>
           <% end %>
 
-          <p class="follow-title", style="font-size:150%">フォロワー一覧</p>
+          <p class="follow-title", style="font-size:150%">
+            <% if current_user == @user %>
+              あなたをフォローしているユーザー一覧
+            <% else %>
+              <%= "#{@user.nickname}をフォローしているユーザー一覧"%>
+            <% end %>
+          </p>
             <% if @user.followers.exists? %>
               <% @user.followers.each do |user| %>
-                <p class=“followers”><%= link_to user.nickname, "/users/#{user.id}/profiles", class: "followers" %></p>
+                <% if current_user.id == user.id %>
+                  <p><%= "#{user.nickname}（あなた）" %></p>
+                <% else %>
+                  <p class=“followers”><%= link_to user.nickname, "/users/#{user.id}/profiles", class: "followers" %></p>
+                <% end %>
               <% end %>
             <% else %>
-              <strong><p>※※※フォロワーはまだいません※※※</p></strong>
+              <strong><p>※※※まだいません※※※</p></strong>
             <% end %>
+
+          <p class="follow-title", style="font-size:150%">
+            <% if current_user == @user %>
+              あなたがフォローしているユーザー一覧
+            <% else %>
+              <%= "#{@user.nickname}がフォローしているユーザー一覧"%>
+            <% end %>
+          </p>
+          <% if @user.followings.exists? %>
+            <% @user.followings.each do |user| %>
+              <% if current_user.id == user.id %>
+                <p><%= "#{user.nickname}（あなた）" %></p>
+              <% else %>
+                <p class=“followers”><%= link_to user.nickname, "/users/#{user.id}/profiles", class: "followers" %></p>
+              <% end %>
+            <% end %>
+          <% else %>
+            <strong><p>※※※まだいません※※※</p></strong>
+          <% end %>
         </span>
       </div>
 
@@ -115,7 +144,7 @@
           <span style="font-size:150%">投稿一覧</span>
           <div class="row row-cols-2">
             <% if @posts.empty? %>
-              <strong><p>※※※投稿はまだありません※※※</p></strong>
+              <strong><p>※※※まだありません※※※</p></strong>
             <% else %>
               <% @posts.each do |post| %>
                 <div class="card">
