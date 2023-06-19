@@ -1,5 +1,6 @@
 class LikesController < ApplicationController
-  before_action :set_post
+  before_action :authenticate_user!, only: [:create, :destroy]
+  before_action :set_post, only: [:create, :destroy]
 
   def create
     like = current_user.likes.build(post_id: params[:post_id])
@@ -12,6 +13,8 @@ class LikesController < ApplicationController
     like.destroy
     render 'destroy.js.erb'
   end
+
+  private
 
   def set_post
     @post = Post.find(params[:post_id])
