@@ -1,0 +1,12 @@
+      <h4>＜コメント一覧＞</h4>
+      <% @comments.each do |comment| %>
+        <p>
+        <% if current_user.id == comment.user.id %>
+          <strong><%= comment.user.nickname + "（あなた）：" %></strong><%= comment.text %>
+          （<%= link_to "削除", post_comment_path(comment.post_id, comment.id), class: "link-name", method: :delete, remote: true %>）
+          <% else %>
+          <strong><%= link_to comment.user.nickname, user_profiles_path(comment.user.id), class: "link-name" %>：</strong>
+          <%= comment.text %>
+          <% end %>
+        </p>
+        <% end %>

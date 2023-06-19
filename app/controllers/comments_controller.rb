@@ -2,20 +2,16 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
 
   def create
-    @comment = Comment.create(comment_params)
     @post = Post.find(params[:post_id])
-    return unless @comment.save
-
-    CommentChannel.broadcast_to @post, { comment: @comment, user: @comment.user }
+    @comments = @post.comments.includes(:user)
+    @comment = Comment.create(comment_params)
+    @comment.save
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
     @post = Post.find(params[:post_id])
-    if current_user.id == @comment.user.id
-    @comment.destroy 
-    end
-    redirect_to post_path(id: @post.id)
+    @comments = @post.comments.includes(:user)
+    Comment.find_by(id: params[:id], post_id: params[:post_id]).destroy
   end
 
   private

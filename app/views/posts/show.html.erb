@@ -120,32 +120,11 @@
     </div>
 
   <div class="comment-container">
-  <div id="comments">
-     <div >
-      <h4>＜コメント一覧＞</h4>
-      <% @comments.each do |comment| %>
-        <p>
-          <strong><%= link_to comment.user.nickname, user_profiles_path(comment.user.id), class: "link-name" %>：</strong>
-          <%= comment.text %>
-          <% if current_user.id == comment.user.id %>
-          （<%= link_to "削除", post_comment_path(comment.post_id, comment.id), class: "link-name", method: :delete %>）
-          <% end %>
-        </p>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="form-group comment-form">
-      <% if user_signed_in? %>
-      <%= form_with model: [@post, @comment], id: "comment-form" do |form| %>
-        <%= form.text_area :text, class: "form-control input-md col-md-5", maxlength: "140" %><br>
-        <%= form.submit "コメントを投稿する", class: "btn btn-primary btn-lg" %>
-        <% end %>
-        <% else %>
-        <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
-     <% end %>
+  <div id="js-comments">
+  <%= render partial: "comments/comment", locals: {comments: @comments} %></div>
+  <%= render partial: "comments/form", locals: {post: @post, comment: @comment}%>
   </div>
-</div>
+  </div>
 
 </body>
 <%= render "shared/footer"%>
