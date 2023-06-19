@@ -1,0 +1,10 @@
+    <div class="form-group comment-form">
+      <% if user_signed_in? %>
+      <%= form_with model: [post, comment], id: "new_comment" do |form| %>
+        <%= form.text_area :text, class: "form-control input-md col-md-5", maxlength: "140", id: "js-new-comment-body" %><br>
+        <%= form.submit "コメントを投稿する", class: "btn btn-primary btn-lg" %>
+        <% end %>
+        <% else %>
+        <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+     <% end %>
+  </div>
