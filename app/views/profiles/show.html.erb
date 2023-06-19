@@ -2,140 +2,141 @@
 
 <div class="profile-show-wrapper">
   <div class="profile-show-top text-center">
-   <%if current_user.id == @user.id %>
-   <h1><b><%="#{@user.nickname}（あなた）のページ" %></b></h1>
-   <% else %>
-   <h1><b><%="#{@user.nickname} のページ" %></b></h1>
-   <% end %>
+    <%if current_user.id == @user.id %>
+      <h1><b><%="#{@user.nickname}（あなた）のページ" %></b></h1>
+    <% else %>
+      <h1><b><%="#{@user.nickname} のページ" %></b></h1>
+    <% end %>
   </div>
 
-<div class="container">
-<div class="row">
-<div class="col-md-6">
-<span style="font-size:150%">ワインショップ情報</span>
-<table class="table-striped", style="width: 80%">
-<tbody>
-<tr>
-<th class="detail-item">店名</th>
-<td class="detail-value">
-<% if Profile.where(user_id: @user.id).exists? && @user.profile.shop.present? %>
-<%= @user.profile.shop %>
-<% else %>
-<%= "---" %>
-<% end %>
-</td>
-</tr>
-<tr>
-<th class="detail-item">所在地</th>
-<td class="detail-value">
-<% if Profile.where(user_id: @user.id).exists? && @user.profile.id != 1%>
-<%= @user.profile.prefecture.name %>
-<% else %>
-<%= "---" %>
-<% end %>
-</td> 
-</tr>
-<tr>
-<th class="detail-item">主要顧客層</th>
-<td class="detail-value">
-<% if Profile.where(user_id: @user.id).exists? && @user.profile.customer.id != 1%>
-<%= @user.profile.customer.name %>
-<% else %>
-<%= "---" %>
-<% end %>
-</td>
-</tr>
-<tr>
-<th class="detail-item">注力価格帯</th>
-<td class="detail-value">
-<% if Profile.where(user_id: @user.id).exists? && @user.profile.price.id != 1 %>
-<%= @user.profile.price.name %>
-<% else %>
-<%= "---" %>
-<% end %>
-</td>
-</tr>
-<tr>
-<th class="detail-item">注力産地</th>
-<td class="detail-value">
-<% if Profile.where(user_id: @user.id).exists? && @user.profile.country.id != 1 %>
-<%= @user.profile.country.name %>
-<% else %>
-<%= "---" %>
-<% end %>
-</td>
-</tr>
-<tr>
-<th class="detail-item">紹介コメント</th>
-<td class="detail-value">
-<% if Profile.where(user_id: @user.id).exists? && @user.profile.introduction.present? %>
-<%= @user.profile.introduction %>
-<% else %>
-<%= "---" %>
-<% end %>
-</td>
-</tr>
-</tbody>
-</table>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <span style="font-size:150%">ワインショップ情報</span>
+        <table class="table-striped", style="width: 80%">
+          <tbody>
+            <tr>
+              <th class="detail-item">店名</th>
+              <td class="detail-value">
+                <% if Profile.where(user_id: @user.id).exists? && @user.profile.shop.present? %>
+                  <%= @user.profile.shop %>
+                <% else %>
+                  <%= "---" %>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <th class="detail-item">所在地</th>
+              <td class="detail-value">
+                <% if Profile.where(user_id: @user.id).exists? && @user.profile.id != 1%>
+                  <%= @user.profile.prefecture.name %>
+                <% else %>
+                  <%= "---" %>
+                <% end %>
+              </td> 
+            </tr>
+            <tr>
+              <th class="detail-item">主要顧客層</th>
+              <td class="detail-value">
+                <% if Profile.where(user_id: @user.id).exists? && @user.profile.customer.id != 1%>
+                  <%= @user.profile.customer.name %>
+                <% else %>
+                  <%= "---" %>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <th class="detail-item">注力価格帯</th>
+              <td class="detail-value">
+                <% if Profile.where(user_id: @user.id).exists? && @user.profile.price.id != 1 %>
+                  <%= @user.profile.price.name %>
+                <% else %>
+                  <%= "---" %>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <th class="detail-item">注力産地</th>
+              <td class="detail-value">
+                <% if Profile.where(user_id: @user.id).exists? && @user.profile.country.id != 1 %>
+                  <%= @user.profile.country.name %>
+                <% else %>
+                  <%= "---" %>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <th class="detail-item">紹介コメント</th>
+              <td class="detail-value">
+                <% if Profile.where(user_id: @user.id).exists? && @user.profile.introduction.present? %>
+                  <%= @user.profile.introduction %>
+                <% else %>
+                  <%= "---" %>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-<% if current_user == @user %>
-<span class="profile-buttons">
-<% if Profile.where(user_id: @user.id).exists? %>
-<%= button_to "ショップ情報の編集", edit_user_profile_path(@user.id, @user.profile.id), method: :get, class: "btn btn-primary" %>
-<% else %>
-<%= button_to "ショップ情報の登録", new_user_profile_path(@user.id), method: :get, class: "btn btn-primary"%>
-<strong><p>※※※ショップ情報はメンバーのみ閲覧できます※※※</p></strong>
-<% end %>
-</span>
-<% end %>
+        <% if current_user == @user %>
+          <span class="profile-buttons">
+            <% if Profile.where(user_id: @user.id).exists? %>
+              <%= button_to "ショップ情報の編集", edit_user_profile_path(@user.id, @user.profile.id), method: :get, class: "btn btn-primary" %>
+            <% else %>
+              <%= button_to "ショップ情報の登録", new_user_profile_path(@user.id), method: :get, class: "btn btn-primary"%>
+              <strong><p>※※※ショップ情報はメンバーのみ閲覧できます※※※</p></strong>
+            <% end %>
+          </span>
+        <% end %>
 
-<span class="container-follow">
-<% if current_user != @user %>
-<% if @user.followed_by?(current_user) %>
-<%=link_to "フォロー中", user_relationships_path(@user.id),class: "btn btn-success", method: :delete %>
-<% else %>
-<%=link_to "フォローする", user_relationships_path(@user.id),class: "btn btn-outline-success", method: :post %>
-<% end %>
-<% end %>
-
-<p class="follow-title", style="font-size:150%">フォロワー一覧</p>
-<% if @user.followers.exists? %>
-<% @user.followers.each do |user| %>
-<p class=“followers”><%= link_to user.nickname, "/users/#{user.id}/profiles", class: "followers" %></p>
-<% end %>
-<% else %>
-<strong><p>※※※フォロワーはまだいません※※※</p></strong>
-<% end %>
-</div>
-
-
-<div class="col-md-6">
-  <div class="container container-posts">
-   <span style="font-size:150%">投稿一覧</span>
-    <div class="row row-cols-2">
-    <% if @posts.empty? %>
-    <strong><p>※※※投稿はまだありません※※※</p></strong>
-    <% else %>
-        <% @posts.each do |post| %>
-          <div class="card">
-          <% if post.image.attached? %>
-          <%= image_tag post.image, class: "index-img d-block mx-auto" %>
-          <% else %>
-          <img class="index-img d-block mx-auto" src="<%= "/images/test_sample.png" %>" alt="Index image cap">
+        <span class="container-follow">
+          <% if current_user != @user %>
+            <% if @user.followed_by?(current_user) %>
+              <%=link_to "フォロー中", user_relationships_path(@user.id),class: "btn btn-success", method: :delete %>
+            <% else %>
+              <%=link_to "フォローする", user_relationships_path(@user.id),class: "btn btn-outline-success", method: :post %>
+            <% end %>
           <% end %>
-          <div class="card-body">
-          <h5 class="card-title"><%=post.title %></h5>
-          <p class="card-text">投稿日：<%=post.created_at.strftime('%Y/%m/%d') %></p>
-            <div class="text-center">
-            <a href=<%=post_path(post.id)%> class="btn btn-secondary">この投稿を見る</a>
-            </div>
+
+          <p class="follow-title", style="font-size:150%">フォロワー一覧</p>
+            <% if @user.followers.exists? %>
+              <% @user.followers.each do |user| %>
+                <p class=“followers”><%= link_to user.nickname, "/users/#{user.id}/profiles", class: "followers" %></p>
+              <% end %>
+            <% else %>
+              <strong><p>※※※フォロワーはまだいません※※※</p></strong>
+            <% end %>
+        </span>
+      </div>
+
+
+      <div class="col-md-6">
+        <div class="container container-posts">
+          <span style="font-size:150%">投稿一覧</span>
+          <div class="row row-cols-2">
+            <% if @posts.empty? %>
+              <strong><p>※※※投稿はまだありません※※※</p></strong>
+            <% else %>
+              <% @posts.each do |post| %>
+                <div class="card">
+                  <% if post.image.attached? %>
+                    <%= image_tag post.image, class: "index-img d-block mx-auto" %>
+                  <% else %>
+                    <img class="index-img d-block mx-auto" src="<%= "/images/test_sample.png" %>" alt="Index image cap">
+                  <% end %>
+                  <div class="card-body">
+                    <h5 class="card-title"><%=post.title %></h5>
+                    <p class="card-text">投稿日：<%=post.created_at.strftime('%Y/%m/%d') %></p>
+                    <div class="text-center">
+                      <a href=<%=post_path(post.id)%> class="btn btn-secondary">この投稿を見る</a>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
           </div>
-          </div>
-        <% end %>
-        <% end %>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-</div>
-</div>
 </div>
