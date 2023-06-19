@@ -10,38 +10,36 @@ RSpec.describe Comment, type: :model do
 
   describe 'コメント機能' do
     context 'コメントを保存できる場合' do
-      it "コメント文を入力済みであれば保存できる" do
+      it 'コメント文を入力済みであれば保存できる' do
         expect(@comment).to be_valid
       end
     end
 
     context 'コメントを保存できない場合' do
-      it "textが空では保存できない" do
+      it 'textが空では保存できない' do
         @comment.text = ''
         @comment.valid?
-        expect(@comment.errors.full_messages).to include "コメントを入力してください"
+        expect(@comment.errors.full_messages).to include 'コメントを入力してください'
       end
 
       it 'textが141字以上では保存できない' do
-       @comment.text = '仮' * 141
-       @comment.valid?
-       expect(@comment.errors.full_messages).to include "コメントは140文字以内で入力してください"
+        @comment.text = '仮' * 141
+        @comment.valid?
+        expect(@comment.errors.full_messages).to include 'コメントは140文字以内で入力してください'
       end
 
-
-      it "userが紐づいていないと保存できない" do
+      it 'userが紐づいていないと保存できない' do
         @comment.user_id = nil
         @comment.valid?
-        expect(@comment.errors.full_messages).to include "Userを入力してください"
+        expect(@comment.errors.full_messages).to include 'Userを入力してください'
       end
 
-      it "postが紐づいていないと保存できない" do
+      it 'postが紐づいていないと保存できない' do
         @comment.post_id = nil
-        
+
         @comment.valid?
-        expect(@comment.errors.full_messages).to include "Postを入力してください"
+        expect(@comment.errors.full_messages).to include 'Postを入力してください'
       end
     end
   end
 end
-
