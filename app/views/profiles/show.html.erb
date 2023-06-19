@@ -101,7 +101,11 @@
           <p class="follow-title", style="font-size:150%">フォロワー一覧</p>
             <% if @user.followers.exists? %>
               <% @user.followers.each do |user| %>
-                <p class=“followers”><%= link_to user.nickname, "/users/#{user.id}/profiles", class: "followers" %></p>
+                <% if current_user.id == user.id %>
+                  <p><%= "#{user.nickname}（あなた）" %>
+                <% else %>
+                  <p class=“followers”><%= link_to user.nickname, "/users/#{user.id}/profiles", class: "followers" %></p>
+                <% end %>
               <% end %>
             <% else %>
               <strong><p>※※※フォロワーはまだいません※※※</p></strong>
