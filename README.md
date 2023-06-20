@@ -16,10 +16,10 @@
 
 ### Association
 - belongs_to :user
+- has_one_attached :image
 - has_many :comments, dependent: :destroy
-- belongs_to :category
+- has_many :likes, dependent: :destroy
 
-- has_many :favorites, dependent: destroy
 
 ## usersテーブル
 | Column   | Type   | Options                   |
@@ -31,14 +31,17 @@
 ### Association
 - has_many :posts, dependent: :destroy
 - has_many :comments, dependent: :destroy
-- has_one :profile
-- has_many :favorites, dependent: destroy
-- has_many :followers, dependent: :destroy
+- has_many :active_relationships, class_name: 'Relationship' foreign_key: :following_id, dependent: :destroy
+- has_many :followings, through: :active_relationships, source: :follower, dependent: :destroy
+- has_many :passive_relationships, class_name: 'Relationship', foreign_key: :follower_id, dependent: :destroy
+- has_many :followers, through: :passive_relationships, source: :following, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_one :profile, dependent: :destroy
 
 ## commentsテーブル
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
-| text   | text       | null: false                    |
+| text   | string     | null: false                    |
 | post   | references | null: false, foreign_key: true |
 | user   | references | null: false, foreign_key: true |
 
@@ -54,30 +57,22 @@
 | customer_id   | integer    |                                |
 | price_id      | integer    |                                |
 | country_id    | integer    |                                |
-| introduction  | text       |     
+| introduction  | text       |                                |
 | user          | references | null: false, foreign_key: true |
 
 
 ### Association
 - belongs_to :user
 
-## categoriesテーブル
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| genre  |            | null: false                    |
-| post   | references | null: false; foreign_key: true |
+## relationshipsテーブル
+| Column    | Type       | Options     |
+| --------- | ---------- | ----------- |
+| follower  | references |             |
+| following | references |             |
 
 ### Association
-- belongs_to :post
-
-## followsテーブル
-| Column      | Type    | Options     |
-| ----------- | ------- | ----------- |
-| follower_id | integer |             |
-| folowee_id  | integer |             |
-
-### Association
-- belongs_to :user
+- belongs_to :following, class_name: 'User'
+- belongs_to :follower, class_name: 'User'
 
 ## likesテーブル
 | Column | Type       | Options           |
