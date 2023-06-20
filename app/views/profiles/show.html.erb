@@ -1,7 +1,7 @@
 <%= render "shared/header"%>
 
 <div class="profile-show-wrapper">
-  <div class="profile-show-top text-center">
+  <div class="text-center">
     <%if current_user.id == @user.id %>
       <h1><b><%="#{@user.nickname}（あなた）のページ" %></b></h1>
     <% else %>
@@ -28,7 +28,7 @@
             <tr>
               <th class="detail-item">所在地</th>
               <td class="detail-value">
-                <% if Profile.where(user_id: @user.id).exists? && @user.profile.id != 1%>
+                <% if Profile.where(user_id: @user.id).exists? && @user.profile.prefecture.id != 1%>
                   <%= @user.profile.prefecture.name %>
                 <% else %>
                   <%= "---" %>
@@ -140,7 +140,7 @@
 
 
       <div class="col-md-6">
-        <div class="container container-posts">
+        <div class="container-posts">
           <span style="font-size:150%">投稿一覧</span>
           <div class="row row-cols-2">
             <% if @posts.empty? %>
@@ -151,10 +151,11 @@
                   <% if post.image.attached? %>
                     <%= image_tag post.image, class: "index-img d-block mx-auto" %>
                   <% else %>
-                    <img class="index-img d-block mx-auto" src="<%= "/images/test_sample.png" %>" alt="Index image cap">
+                    <img class="index-img d-block mx-auto" src="<%= "/images/test_sample.png" %>" alt="画像">
                   <% end %>
                   <div class="card-body">
                     <h5 class="card-title"><%=post.title %></h5>
+                    <p class="card-text card-text-margin">投稿ジャンル：<%=post.genre.name %></p>
                     <p class="card-text">投稿日：<%=post.created_at.strftime('%Y/%m/%d') %></p>
                     <div class="text-center">
                       <a href=<%=post_path(post.id)%> class="btn btn-secondary">この投稿を見る</a>
@@ -169,3 +170,5 @@
     </div>
   </div>
 </div>
+
+<%= render "shared/footer"%>
