@@ -16,14 +16,6 @@
     <div class="form-text">最大30文字。(例) キンキンに冷やす夏の定番</div>
 
     <div class="bold-text">
-      商品名
-      <span class="indispensable">必須</span>
-    </div>
-    
-    <%= f.text_field :name, class:"form-control input-lg col-lg-5", maxlength:"50" %>
-    <div class="form-text">最大50文字。（例）ABCヴィンヤード シャルドネ 2020</div>
-    
-    <div class="bold-text">
       産地
       <span class="indispensable">必須</span>
     </div>
@@ -33,6 +25,12 @@
       <span class="indispensable">必須</span>
     </div>
     <%= f.collection_select(:type_id, Type.all, :id, :name, {prompt: false}, {class:"form-control input-lg col-md-5"})  %>
+
+    <div class="bold-text">
+      商品名
+    </div>
+    <%= f.text_field :name, class:"form-control input-lg col-lg-5", maxlength:"50" %>
+    <div class="form-text">最大50文字。（例）ABCヴィンヤード シャルドネ 2020</div>
 
     <div class="bold-text">輸入業者・卸売業者名</div>
     <%= f.text_field :importer, class:"form-control input-lg col-lg-5", maxlength:"15", size: "30" %>
