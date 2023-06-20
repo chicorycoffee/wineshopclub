@@ -1,47 +1,10 @@
 <%= render "shared/header"%>
 
-<div class="countainer outer-content">
-<h2 class="post-title text-center", style="font-size:180%">ショップ情報の編集</h2>
-  <div class="form-group inner-content">
-    <%= form_with model: [@user, @profile], local: true do |f| %>
+<div class="outer-content">
+  <h2 class="post-title text-center", style="font-size:180%">ショップ情報の編集</h2>
 
-    <div class="bold-text">
-      店名
+    <div class="form-group inner-content">
+      <%= render partial: 'form', locals: { user: @user, profile: @profile }%>
     </div>
-    <%= f.text_field :shop, class:"form-control input-lg col-lg-4", maxlength:"30" %>
-    <div class="form-text">最大30文字。(例) ワインショップABC</div>
 
-  <div class="bold-text">
-      所在地
-    </div>
-    <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {prompt: false}, {class:"form-control input-lg col-lg-5"}) %>
-    
-    <div class="bold-text">
-     主要顧客層
-    </div>
-   <%= f.collection_select(:customer_id, Customer.all, :id, :name, {prompt: false}, {class:"form-control input-lg col-lg-5"}) %>
-  
-  <div class="bold-text">
-     注力価格帯
-    </div>
-   <%= f.collection_select(:price_id, Price.all, :id, :name, {prompt: false}, {class:"form-control input-lg col-lg-5"})%>
-    
-    <div class="bold-text">
-      注力産地
-    </div>
-    <%= f.collection_select(:country_id, Country.all, :id, :name, {prompt: false}, {class:"form-control input-lg col-lg-5"})%>
-
-    <div class="bold-text">
-      紹介コメント
-    </div>
-    <%= f.text_area :introduction, maxlength:"140", class:"form-control input-lg col-lg-5" %>
-    <div class="form-text">最大140文字。ワインショップについてコメントをお願いします</div>
-    
-    <div class="new-submit">
-    <input class="btn btn-primary btn-lg" type="submit" value="変更を保存する">
-    </div>
-    <% end %>
 </div>
-</div>
-
-
