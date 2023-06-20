@@ -19,7 +19,7 @@
         <% if @post.image.attached? %>
           <%= image_tag @post.image, class: "post-show-img d-block mx-auto" %>
         <% else %>
-          <img class="post-show-img mx-auto d-block" src="<%= "/images/test_sample.png" %>" alt="画像">
+          <img class="post-show-img mx-auto d-block" src="<%= "/images/sample.png" %>" alt="画像">
         <% end %>
       </div>
       <div class="col-md-6">
@@ -27,7 +27,13 @@
           <tbody>
             <tr>
               <th class="detail-item">商品名</th>
-              <td class="detail-value"><%= @post.name %></td>
+              <td class="detail-value">
+                <% if @post.name.present?%>
+                  <%= @post.name %>
+                <% else %>
+                  <%= "---" %>
+                <% end %>
+              </td>
             </tr>
             <tr>
               <th class="detail-item">輸入業者・卸売業者名</th>

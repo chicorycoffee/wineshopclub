@@ -41,6 +41,10 @@ RSpec.describe Post, type: :model do
         @post.image = nil
         expect(@post).to be_valid
       end
+      it 'nameが空でも投稿できる' do
+        @post.name = ''
+        expect(@post).to be_valid
+      end
     end
 
     context '商品が投稿できない場合' do
@@ -54,11 +58,7 @@ RSpec.describe Post, type: :model do
         @post.valid?
         expect(@post.errors.full_messages).to include('キャッチコピーは30文字以内で入力してください')
       end
-      it 'nameが空では登録できない' do
-        @post.name = ''
-        @post.valid?
-        expect(@post.errors.full_messages).to include('商品名を入力してください')
-      end
+
       it 'nameが51文字以上では登録できない' do
         @post.name = '仮' * 51
         @post.valid?

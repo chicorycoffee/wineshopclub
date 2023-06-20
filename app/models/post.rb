@@ -5,7 +5,6 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   validates :title, presence: true
-  validates :name, presence: true
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :genre
