@@ -23,7 +23,7 @@
 
 .container {
   margin-top: 50px;
-  width: 100vw;
+  width: 80vw;
 }
 
 .container-w{
@@ -52,12 +52,18 @@
 }
 
 .container-s{
+  width: 100%;
   margin-top: 25px;
 }
 
+.row-eq-height {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .post-show-img{
-  width: 30vw;
-  height: 50vh;
+  width: 70%; 
+  height: 80%;
   object-fit: scale-down;
 }
 
