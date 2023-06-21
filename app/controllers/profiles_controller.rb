@@ -5,8 +5,10 @@ class ProfilesController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @posts = Post.where(user_id: @user.id).order('created_at DESC')
-    return unless Profile.where(user_id: @user.id).exists?
+    likes = Like.where(user_id: current_user.id).pluck(:post_id)
+    @likes_list = Post.find(likes)
 
+    return unless Profile.where(user_id: @user.id).exists?
     @profile = Profile.where(user_id: @user.id)
   end
 

@@ -12,7 +12,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <span style="font-size:150%">ワインショップ情報</span>
+        <p style="font-size:150%">ワインショップ情報</p>
         <table class="table-striped", style="width: 80%">
           <tbody>
             <tr>
@@ -79,17 +79,17 @@
         </table>
 
         <% if current_user == @user %>
-          <span class="profile-buttons">
+          <p class="profile-buttons">
             <% if Profile.where(user_id: @user.id).exists? %>
               <%= button_to "ショップ情報の編集", edit_user_profile_path(@user.id, @user.profile.id), method: :get, class: "btn btn-primary" %>
             <% else %>
               <%= button_to "ショップ情報の登録", new_user_profile_path(@user.id), method: :get, class: "btn btn-primary"%>
-              <strong><p>※※※ショップ情報はメンバーのみ閲覧できます※※※</p></strong>
+              <strong><p>※※※ショップ情報はログインメンバー限定で公開されます※※※</p></strong>
             <% end %>
-          </span>
+          </p>
         <% end %>
 
-        <span class="container-follow">
+        <p class="container-follow">
           <% if current_user != @user %>
             <% if @user.followed_by?(current_user) %>
               <%=link_to "フォロー中", user_relationships_path(@user.id),class: "btn btn-success", method: :delete %>
@@ -97,14 +97,16 @@
               <%=link_to "フォローする", user_relationships_path(@user.id),class: "btn btn-outline-success", method: :post %>
             <% end %>
           <% end %>
+        </p>
 
           <p class="follow-title", style="font-size:150%">
             <% if current_user == @user %>
-              あなたをフォローしているユーザー一覧
+              あなたを「フォロー」しているユーザー一覧
             <% else %>
               <%= "#{@user.nickname}をフォローしているユーザー一覧"%>
             <% end %>
           </p>
+
             <% if @user.followers.exists? %>
               <% @user.followers.each do |user| %>
                 <% if current_user.id == user.id %>
@@ -117,31 +119,37 @@
               <strong><p>※※※まだいません※※※</p></strong>
             <% end %>
 
-          <p class="follow-title", style="font-size:150%">
             <% if current_user == @user %>
-              あなたがフォローしているユーザー一覧
-            <% else %>
-              <%= "#{@user.nickname}がフォローしているユーザー一覧"%>
-            <% end %>
-          </p>
-          <% if @user.followings.exists? %>
-            <% @user.followings.each do |user| %>
-              <% if current_user.id == user.id %>
-                <p><%= "#{user.nickname}（あなた）" %></p>
+              <p class="follow-title", style="font-size:150%">
+                あなたが「フォロー」しているユーザー一覧
+              </p>
+              <% if @user.followings.exists? %>
+                <% @user.followings.each do |user| %>
+                  <p class=“followers”><%= link_to user.nickname, "/users/#{user.id}/profiles", class: "followers" %></p>
+                <% end %>
               <% else %>
-                <p class=“followers”><%= link_to user.nickname, "/users/#{user.id}/profiles", class: "followers" %></p>
+                <strong><p>※※※まだいません※※※</p></strong>
               <% end %>
             <% end %>
-          <% else %>
-            <strong><p>※※※まだいません※※※</p></strong>
-          <% end %>
-        </span>
+
+          <p class="follow-title", style="font-size:150%">
+            <% if current_user == @user %>
+              あなたが「いいね」した投稿一覧
+          </p>
+              <% if @likes_list.present? %>
+                <% @likes_list.each do |post|%>
+                <p class="followers"><%= link_to post.title, post_path(post.id), class: "followers" %></p>
+                <% end %>
+              <% else %>
+                <strong><p>※※※まだありません※※※</p></strong>
+              <% end %>
+            <% end %>
       </div>
 
 
       <div class="col-md-6">
         <div class="container-posts">
-          <span style="font-size:150%">投稿一覧</span>
+          <p style="font-size:150%">投稿一覧</p>
           <div class="row row-cols-2">
             <% if @posts.empty? %>
               <strong><p>※※※まだありません※※※</p></strong>
