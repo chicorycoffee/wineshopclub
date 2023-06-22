@@ -84,7 +84,7 @@
               <%= button_to "ショップ情報の編集", edit_user_profile_path(@user.id, @user.profile.id), method: :get, class: "btn btn-primary" %>
             <% else %>
               <%= button_to "ショップ情報の登録", new_user_profile_path(@user.id), method: :get, class: "btn btn-primary"%>
-              <strong><p>※※※ショップ情報はログインメンバー限定で公開されます※※※</p></strong>
+              <p>（ショップ情報はログインメンバー限定で公開されます）</p>
             <% end %>
           </p>
         <% end %>
@@ -116,7 +116,7 @@
                 <% end %>
               <% end %>
             <% else %>
-              <strong><p>※※※まだいません※※※</p></strong>
+              <p>まだいません</p>
             <% end %>
 
             <% if current_user == @user %>
@@ -128,7 +128,7 @@
                   <p class=“followers”><%= link_to user.nickname, "/users/#{user.id}/profiles", class: "followers" %></p>
                 <% end %>
               <% else %>
-                <strong><p>※※※まだいません※※※</p></strong>
+                <p>まだいません</p>
               <% end %>
             <% end %>
 
@@ -141,7 +141,7 @@
                 <p class="followers"><%= link_to post.title, post_path(post.id), class: "followers" %></p>
                 <% end %>
               <% else %>
-                <strong><p>※※※まだありません※※※</p></strong>
+                <p>まだありません</p>
               <% end %>
             <% end %>
       </div>
@@ -152,7 +152,7 @@
           <p style="font-size:150%">投稿一覧</p>
           <div class="row row-cols-2">
             <% if @posts.empty? %>
-              <strong><p>※※※まだありません※※※</p></strong>
+              <p>まだありません</p>
             <% else %>
               <% @posts.each do |post| %>
                 <div class="card">
