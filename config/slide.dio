@@ -1,23 +1,23 @@
 <mxfile host="65bd71144e">
     <diagram id="vsw-Eq5kBKqwqIjemaPz" name="ページ1">
-        <mxGraphModel dx="773" dy="682" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="719" dy="682" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="500" background="#ffffff" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="41" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="2">
+                <mxCell id="41" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;labelBackgroundColor=none;fontColor=#000000;strokeColor=#000000;" parent="1" source="2" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="180" y="270" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="2" value="最新投稿一覧ページ" style="whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+                <mxCell id="2" value="最新投稿一覧ページ" style="whiteSpace=wrap;html=1;align=center;labelBackgroundColor=none;fontColor=#000000;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
                     <mxGeometry x="40" y="250" width="110" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="43" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="3">
+                <mxCell id="43" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;labelBackgroundColor=none;fontColor=#000000;strokeColor=#000000;" parent="1" source="3" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="180" y="210" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="46" style="html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="3" target="4">
+                <mxCell id="46" style="html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;edgeStyle=orthogonalEdgeStyle;labelBackgroundColor=none;fontColor=#000000;strokeColor=#000000;" parent="1" source="3" target="4" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="370" y="210"/>
@@ -25,19 +25,19 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="3" value="ユーザー新規登録ページ" style="whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+                <mxCell id="3" value="ユーザー新規登録ページ" style="whiteSpace=wrap;html=1;align=center;labelBackgroundColor=none;fontColor=#000000;strokeColor=#000000;fillColor=#FFFFFF;" parent="1" vertex="1">
                     <mxGeometry x="200" y="190" width="140" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="4" value="ユーザーログインページ" style="whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+                <mxCell id="4" value="ユーザーログインページ" style="whiteSpace=wrap;html=1;align=center;labelBackgroundColor=none;fontColor=#000000;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
                     <mxGeometry x="200" y="300" width="140" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="51" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="5" target="11">
+                <mxCell id="51" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;labelBackgroundColor=none;fontColor=#000000;strokeColor=#000000;" parent="1" source="5" target="11" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="5" value="ユーザー詳細ページ" style="whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+                <mxCell id="5" value="ユーザー詳細ページ" style="whiteSpace=wrap;html=1;align=center;labelBackgroundColor=none;fontColor=#000000;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
                     <mxGeometry x="440" y="390" width="110" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="40" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="7" target="4">
+                <mxCell id="40" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;labelBackgroundColor=none;fontColor=#000000;strokeColor=#000000;" parent="1" source="7" target="4" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="180" y="90"/>
@@ -45,10 +45,10 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="7" value="投稿ジャンル別投稿一覧ページ" style="whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+                <mxCell id="7" value="投稿ジャンル別投稿一覧ページ" style="whiteSpace=wrap;html=1;align=center;labelBackgroundColor=none;fontColor=#000000;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
                     <mxGeometry x="200" y="70" width="180" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="44" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="8" target="5">
+                <mxCell id="44" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;labelBackgroundColor=none;fontColor=#000000;strokeColor=#000000;" parent="1" source="8" target="5" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="410" y="190"/>
@@ -56,27 +56,27 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="49" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="8" target="9">
+                <mxCell id="49" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;labelBackgroundColor=none;fontColor=#000000;strokeColor=#000000;" parent="1" source="8" target="9" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="8" value="投稿詳細ページ" style="whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+                <mxCell id="8" value="投稿詳細ページ" style="whiteSpace=wrap;html=1;align=center;labelBackgroundColor=none;fontColor=#000000;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
                     <mxGeometry x="440" y="170" width="110" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="9" value="投稿編集ページ" style="whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+                <mxCell id="9" value="投稿編集ページ" style="whiteSpace=wrap;html=1;align=center;labelBackgroundColor=none;fontColor=#000000;gradientColor=none;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
                     <mxGeometry x="640" y="170" width="110" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="11" value="ユーザー情報編集ページ" style="whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+                <mxCell id="11" value="ユーザー情報編集ページ" style="whiteSpace=wrap;html=1;align=center;labelBackgroundColor=none;fontColor=#000000;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
                     <mxGeometry x="640" y="390" width="140" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="47" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="15">
+                <mxCell id="47" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;labelBackgroundColor=none;fontColor=#000000;strokeColor=#000000;" parent="1" source="15" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="410" y="300" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="15" value="新規投稿ページ" style="whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+                <mxCell id="15" value="新規投稿ページ" style="whiteSpace=wrap;html=1;align=center;labelBackgroundColor=none;fontColor=#000000;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
                     <mxGeometry x="440" y="280" width="110" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="52" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+                <mxCell id="52" value="" style="endArrow=none;html=1;rounded=0;labelBackgroundColor=none;fontColor=#000000;strokeColor=#000000;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="370" y="280" as="sourcePoint"/>
                         <mxPoint x="410" y="280" as="targetPoint"/>
