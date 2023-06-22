@@ -39,14 +39,14 @@ https://docs.google.com/spreadsheets/d/1HT9o-iy92YieDkNqAzhfQvkQo-8lnnCIhi6JXzf8
 
 # 実装した機能についての画像
 
-## トップページ・投稿ジャンル別一覧ページ
+## トップページ・投稿ジャンル別投稿一覧ページ
 [![Image from Gyazo](https://i.gyazo.com/e04d49f436411fee478849bea9d5c065.gif)](https://gyazo.com/e04d49f436411fee478849bea9d5c065)
 - トップページは各投稿ジャンルの直近の投稿を３件ずつ表示
-- 「すべて見る」もしくはトップページの「投稿ジャンル」から投稿ジャンル別一覧ページに遷移する
+- 「すべて見る」もしくはトップページの「投稿ジャンル」から投稿ジャンル別投稿一覧ページに遷移する
 
 ## 投稿詳細ページ
 [![Image from Gyazo](https://i.gyazo.com/7c6f235eed09bf9d020782cb3fac8a72.gif)](https://gyazo.com/7c6f235eed09bf9d020782cb3fac8a72)
-- トップページもしくは投稿ジャンル別一覧ページの「この投稿を見る」から投稿詳細ページに遷移する
+- トップページもしくは投稿ジャンル別投稿一覧ページの「この投稿を見る」から投稿詳細ページに遷移する
 - 「いいね」登録とコメント投稿を非同期通信で反映する
 
 ## ユーザー詳細(プロフィール)ページ
@@ -71,11 +71,11 @@ https://docs.google.com/spreadsheets/d/1HT9o-iy92YieDkNqAzhfQvkQo-8lnnCIhi6JXzf8
 - テキストエディタ
 
 # ローカルでの動作方法
-以下のコマンドを順に実行。
-％ git clone
-％ cd wineshopclub
-％ bundle install
-％ yarn install
+以下のコマンドを順に実行<br>
+％ git clone https://github.com/chicorycoffee/wineshopclub.git<br>
+％ cd wineshopclub<br>
+％ bundle install<br>
+％ yarn install<br>
 
 # テーブルとアソシエーション
 
