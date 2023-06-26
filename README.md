@@ -40,7 +40,7 @@ https://docs.google.com/spreadsheets/d/1HT9o-iy92YieDkNqAzhfQvkQo-8lnnCIhi6JXzf8
 # 実装した機能についての画像・GIF
 
 ## トップページ・投稿ジャンル別投稿一覧ページ
-[![Image from Gyazo](https://i.gyazo.com/6bc37cef08db7bbd4e945d1da06bea16.jpg)](https://gyazo.com/6bc37cef08db7bbd4e945d1da06bea16)
+[![Image from Gyazo](https://i.gyazo.com/88543913a03768dbd6473ad75d1fc2f6.jpg)](https://gyazo.com/88543913a03768dbd6473ad75d1fc2f6)
 - トップページは各投稿ジャンルの直近の投稿を３件ずつ表示
 - 「すべて見る」もしくはトップページの「投稿ジャンル」から投稿ジャンル別投稿一覧ページに遷移する
 
