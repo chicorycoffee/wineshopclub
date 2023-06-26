@@ -47,7 +47,8 @@ https://docs.google.com/spreadsheets/d/1HT9o-iy92YieDkNqAzhfQvkQo-8lnnCIhi6JXzf8
 ## 投稿詳細ページ
 [![Image from Gyazo](https://i.gyazo.com/7c6f235eed09bf9d020782cb3fac8a72.gif)](https://gyazo.com/7c6f235eed09bf9d020782cb3fac8a72)
 - トップページもしくは投稿ジャンル別投稿一覧ページの「この投稿を見る」から投稿詳細ページに遷移する
-- 「いいね」登録とコメント投稿を非同期通信で反映する
+- 「いいね」機能とコメント機能の登録と削除を非同期通信で反映する
+- ログインユーザーが投稿者の場合、「投稿の編集」「削除」が行える
 
 ## ユーザー詳細(プロフィール)ページ
 [![Image from Gyazo](https://i.gyazo.com/8fdc987b928d47a8351eac2403830852.gif)](https://gyazo.com/8fdc987b928d47a8351eac2403830852)
